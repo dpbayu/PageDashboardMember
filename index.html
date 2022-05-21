@@ -21,10 +21,16 @@
             }
         }
     </script>
+    <style>
+        .rotate {
+            transform: rotate(180deg);
+        }
+    </style>
 </head>
 
 <body class="bg-yellow-700" x-data="{
     sidemenu: 'home',
+    open: false,
 }">
     <!-- Header Start -->
     <header class="flex py-3 items-center bg-white justify-evenly">
@@ -78,134 +84,56 @@
     <div class="h-fit grid grid-cols-12 container mx-auto my-5">
         <!-- Side Menu Start -->
         <div class="col-start-2 col-span-3 mr-10 h-full bg-white rounded-lg">
-            <ul class="flex gap-2 flex-col h-fit rounded-lg">
+            <ul class="flex gap-2 flex-col h-full rounded-lg pb-5">
                 <!-- Home Start -->
                 <li class="w-full flex items-center cursor-pointer justify-between pl-10 pr-5 h-10"
-                    :class="{'bg-orange-100 w-full text-primary rounded-t-lg': sidemenu === 'home'}">
+                    :class="{'bg-orange-100 w-full text-primary rounded-t-lg': sidemenu === 'home'}"
+                    @click.prevent="sidemenu = 'home'">
                     <div class="flex items-center gap-5">
                         <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
                             <path
                                 d="M12,3c0,0-6.186,5.34-9.643,8.232C2.154,11.416,2,11.684,2,12c0,0.553,0.447,1,1,1h2v7c0,0.553,0.447,1,1,1h3  c0.553,0,1-0.448,1-1v-4h4v4c0,0.552,0.447,1,1,1h3c0.553,0,1-0.447,1-1v-7h2c0.553,0,1-0.447,1-1c0-0.316-0.154-0.584-0.383-0.768  C18.184,8.34,12,3,12,3z" />
                         </svg>
-                        <p class="font-semibold">Home</p>
+                        <button class="font-semibold">Home</button>
                     </div>
                 </li>
                 <!-- Home End -->
                 <!-- My Profile Start -->
-                <li class="w-full flex items-center cursor-pointer justify-between pl-10 pr-5 h-10">
-                    <div class="flex items-center gap-5">
-                        <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
-                            <circle cx="12" cy="8" r="4" />
-                            <path d="M20,19v1a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V19a6,6,0,0,1,6-6h4A6,6,0,0,1,20,19Z" />
-                        </svg>
-                        <p class="font-semibold">My Profile</p>
+                <li class="w-full items-center cursor-pointer">
+                    <div x-on:click="open = true">
+                        <div class="flex justify-between pl-10 pr-5 relative" x-data="{selected : false}"
+                            @click.outside="selected = false" x-on:click="selected = true">
+                            <div class="flex gap-5">
+                                <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="8" r="4" />
+                                    <path
+                                        d="M20,19v1a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V19a6,6,0,0,1,6-6h4A6,6,0,0,1,20,19Z" />
+                                </svg>
+                                <button class="font-semibold">My Profile</button>
+                            </div>
+                            <div class="flex-col">
+                                <svg class="w-7 h-7 fill-current transition-all" x-bind:class="{'rotate' : selected}"
+                                    viewBox="0 0 512 512">
+                                    <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
+                                </svg>
+                                <ul class="absolute top-5 left-0 my-2 w-full" x-show="open" @click.outside="open = false" x-transition>
+                                    <div @click.prevent="sidemenu='my-profile'">
+                                        <li class="my-2 px-[90px] py-1"
+                                            :class="{'bg-orange-100 w-full text-orange-500': sidemenu === 'my-profile'}">
+                                            Edit Profile</li>
+                                    </div>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <svg class="w-7 h-7" viewBox="0 0 512 512">
-                        <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
-                    </svg>
                 </li>
                 <!-- My Profile End -->
-                <!-- BeeRewards Start -->
-                <li class="w-full flex items-center cursor-pointer justify-between py-5 h-10">
-                    <div class="flex items-center gap-5">
-                        <svg class="w-7 h-7" viewBox="0 0 48 48">
-                            <path clip-rule="evenodd"
-                                d="M43,46H5c-2.209,0-4-1.791-4-4l4-24c0.678-3.442,2.668-4,4.877-4h2.652  C14.037,7.052,18.602,2,24,2s9.963,5.052,11.471,12h2.652c2.209,0,4.199,0.558,4.877,4l4,24C47,44.209,45.209,46,43,46z M24,4  c-4.352,0-8.045,4.178-9.418,10h18.837C32.045,8.178,28.353,4,24,4z M41,18c-0.308-1.351-0.957-2-2.37-2h-2.828  C35.925,16.976,36,17.975,36,19c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.027-0.069-2.031-0.201-3H14.201C14.07,16.969,14,17.973,14,19  c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.025,0.075-2.024,0.197-3H9.369C7.957,16,7.309,16.649,7,18L3,42c0,1.104,0.896,2,2,2h38  c1.104,0,2-0.896,2-2L41,18z"
-                                fill-rule="evenodd" />
-                        </svg>
-                        <p class="font-semibold">BeeRewards</p>
-                    </div>
-                </li>
-                <!-- BeeRewards End -->
-                <!-- Order Start -->
-                <li class="w-full flex items-center cursor-pointer justify-between py-5 h-10">
-                    <div class="flex items-center gap-5">
-                        <svg class="w-7 h-7" viewBox="0 0 48 48">
-                            <path clip-rule="evenodd"
-                                d="M43,46H5c-2.209,0-4-1.791-4-4l4-24c0.678-3.442,2.668-4,4.877-4h2.652  C14.037,7.052,18.602,2,24,2s9.963,5.052,11.471,12h2.652c2.209,0,4.199,0.558,4.877,4l4,24C47,44.209,45.209,46,43,46z M24,4  c-4.352,0-8.045,4.178-9.418,10h18.837C32.045,8.178,28.353,4,24,4z M41,18c-0.308-1.351-0.957-2-2.37-2h-2.828  C35.925,16.976,36,17.975,36,19c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.027-0.069-2.031-0.201-3H14.201C14.07,16.969,14,17.973,14,19  c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.025,0.075-2.024,0.197-3H9.369C7.957,16,7.309,16.649,7,18L3,42c0,1.104,0.896,2,2,2h38  c1.104,0,2-0.896,2-2L41,18z"
-                                fill-rule="evenodd" />
-                        </svg>
-                        <p class="font-semibold">Order</p>
-                    </div>
-                </li>
-                <!-- Order End -->
-                <!-- My Favorite Start -->
-                <li class="w-full flex items-center cursor-pointer justify-between py-5 h-10">
-                    <div class="flex items-center gap-5">
-                        <svg class="w-7 h-7" viewBox="0 0 48 48">
-                            <path clip-rule="evenodd"
-                                d="M43,46H5c-2.209,0-4-1.791-4-4l4-24c0.678-3.442,2.668-4,4.877-4h2.652  C14.037,7.052,18.602,2,24,2s9.963,5.052,11.471,12h2.652c2.209,0,4.199,0.558,4.877,4l4,24C47,44.209,45.209,46,43,46z M24,4  c-4.352,0-8.045,4.178-9.418,10h18.837C32.045,8.178,28.353,4,24,4z M41,18c-0.308-1.351-0.957-2-2.37-2h-2.828  C35.925,16.976,36,17.975,36,19c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.027-0.069-2.031-0.201-3H14.201C14.07,16.969,14,17.973,14,19  c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.025,0.075-2.024,0.197-3H9.369C7.957,16,7.309,16.649,7,18L3,42c0,1.104,0.896,2,2,2h38  c1.104,0,2-0.896,2-2L41,18z"
-                                fill-rule="evenodd" />
-                        </svg>
-                        <p class="font-semibold">My Favorite</p>
-                    </div>
-                </li>
-                <!-- My Favorite End -->
-                <!-- Withdrawal Start -->
-                <li class="w-full flex items-center cursor-pointer justify-between py-5 h-10">
-                    <div class="flex items-center gap-5">
-                        <svg class="w-7 h-7" viewBox="0 0 48 48">
-                            <path clip-rule="evenodd"
-                                d="M43,46H5c-2.209,0-4-1.791-4-4l4-24c0.678-3.442,2.668-4,4.877-4h2.652  C14.037,7.052,18.602,2,24,2s9.963,5.052,11.471,12h2.652c2.209,0,4.199,0.558,4.877,4l4,24C47,44.209,45.209,46,43,46z M24,4  c-4.352,0-8.045,4.178-9.418,10h18.837C32.045,8.178,28.353,4,24,4z M41,18c-0.308-1.351-0.957-2-2.37-2h-2.828  C35.925,16.976,36,17.975,36,19c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.027-0.069-2.031-0.201-3H14.201C14.07,16.969,14,17.973,14,19  c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.025,0.075-2.024,0.197-3H9.369C7.957,16,7.309,16.649,7,18L3,42c0,1.104,0.896,2,2,2h38  c1.104,0,2-0.896,2-2L41,18z"
-                                fill-rule="evenodd" />
-                        </svg>
-                        <p class="font-semibold">Withdrawal</p>
-                    </div>
-                </li>
-                <!-- Withdrawal End -->
-                <!-- Fast Track Start -->
-                <li class="w-full flex items-center cursor-pointer justify-between py-5 h-10">
-                    <div class="flex items-center gap-5">
-                        <svg class="w-7 h-7" viewBox="0 0 48 48">
-                            <path clip-rule="evenodd"
-                                d="M43,46H5c-2.209,0-4-1.791-4-4l4-24c0.678-3.442,2.668-4,4.877-4h2.652  C14.037,7.052,18.602,2,24,2s9.963,5.052,11.471,12h2.652c2.209,0,4.199,0.558,4.877,4l4,24C47,44.209,45.209,46,43,46z M24,4  c-4.352,0-8.045,4.178-9.418,10h18.837C32.045,8.178,28.353,4,24,4z M41,18c-0.308-1.351-0.957-2-2.37-2h-2.828  C35.925,16.976,36,17.975,36,19c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.027-0.069-2.031-0.201-3H14.201C14.07,16.969,14,17.973,14,19  c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.025,0.075-2.024,0.197-3H9.369C7.957,16,7.309,16.649,7,18L3,42c0,1.104,0.896,2,2,2h38  c1.104,0,2-0.896,2-2L41,18z"
-                                fill-rule="evenodd" />
-                        </svg>
-                        <p class="font-semibold">Fast Track</p>
-                    </div>
-                </li>
-                <!-- Fast Track End -->
-                <!-- Genealogy Start -->
-                <li class="w-full flex items-center cursor-pointer justify-between py-5 h-10">
-                    <div class="flex items-center gap-5">
-                        <svg class="w-7 h-7" viewBox="0 0 48 48">
-                            <path clip-rule="evenodd"
-                                d="M43,46H5c-2.209,0-4-1.791-4-4l4-24c0.678-3.442,2.668-4,4.877-4h2.652  C14.037,7.052,18.602,2,24,2s9.963,5.052,11.471,12h2.652c2.209,0,4.199,0.558,4.877,4l4,24C47,44.209,45.209,46,43,46z M24,4  c-4.352,0-8.045,4.178-9.418,10h18.837C32.045,8.178,28.353,4,24,4z M41,18c-0.308-1.351-0.957-2-2.37-2h-2.828  C35.925,16.976,36,17.975,36,19c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.027-0.069-2.031-0.201-3H14.201C14.07,16.969,14,17.973,14,19  c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.025,0.075-2.024,0.197-3H9.369C7.957,16,7.309,16.649,7,18L3,42c0,1.104,0.896,2,2,2h38  c1.104,0,2-0.896,2-2L41,18z"
-                                fill-rule="evenodd" />
-                        </svg>
-                        <p class="font-semibold">Genealogy</p>
-                    </div>
-                </li>
-                <!-- Genealogy End -->
-                <!-- Report Start -->
-                <li class="w-full flex items-center cursor-pointer justify-between py-5 h-10">
-                    <div class="flex items-center gap-5">
-                        <svg class="w-7 h-7" viewBox="0 0 48 48">
-                            <path clip-rule="evenodd"
-                                d="M43,46H5c-2.209,0-4-1.791-4-4l4-24c0.678-3.442,2.668-4,4.877-4h2.652  C14.037,7.052,18.602,2,24,2s9.963,5.052,11.471,12h2.652c2.209,0,4.199,0.558,4.877,4l4,24C47,44.209,45.209,46,43,46z M24,4  c-4.352,0-8.045,4.178-9.418,10h18.837C32.045,8.178,28.353,4,24,4z M41,18c-0.308-1.351-0.957-2-2.37-2h-2.828  C35.925,16.976,36,17.975,36,19c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.027-0.069-2.031-0.201-3H14.201C14.07,16.969,14,17.973,14,19  c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.025,0.075-2.024,0.197-3H9.369C7.957,16,7.309,16.649,7,18L3,42c0,1.104,0.896,2,2,2h38  c1.104,0,2-0.896,2-2L41,18z"
-                                fill-rule="evenodd" />
-                        </svg>
-                        <p class="font-semibold">Report</p>
-                    </div>
-                </li>
-                <!-- Report End -->
-                <!-- FAQ Start -->
-                <li class="w-full flex items-center cursor-pointer justify-between py-5 h-10">
-                    <div class="flex items-center gap-5">
-                        <svg class="w-7 h-7" viewBox="0 0 48 48">
-                            <path clip-rule="evenodd"
-                                d="M43,46H5c-2.209,0-4-1.791-4-4l4-24c0.678-3.442,2.668-4,4.877-4h2.652  C14.037,7.052,18.602,2,24,2s9.963,5.052,11.471,12h2.652c2.209,0,4.199,0.558,4.877,4l4,24C47,44.209,45.209,46,43,46z M24,4  c-4.352,0-8.045,4.178-9.418,10h18.837C32.045,8.178,28.353,4,24,4z M41,18c-0.308-1.351-0.957-2-2.37-2h-2.828  C35.925,16.976,36,17.975,36,19c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.027-0.069-2.031-0.201-3H14.201C14.07,16.969,14,17.973,14,19  c0,0.552-0.447,1-1,1s-1-0.448-1-1c0-1.025,0.075-2.024,0.197-3H9.369C7.957,16,7.309,16.649,7,18L3,42c0,1.104,0.896,2,2,2h38  c1.104,0,2-0.896,2-2L41,18z"
-                                fill-rule="evenodd" />
-                        </svg>
-                        <p class="font-semibold">FAQ</p>
-                    </div>
-                </li>
-                <!-- FAQ End -->
             </ul>
         </div>
         <!-- Side Menu End -->
         <!-- Body Page Start -->
         <div class="col-span-7 h-full h-fit">
+            <!-- Home Start -->
             <div x-show="sidemenu === 'home'">
                 <!-- Bagian Kanan Atas Start -->
                 <div class="pb-5 relative h-fit bg-white rounded-lg">
@@ -267,7 +195,7 @@
                 <!-- Bagian Kanan Atas End -->
                 <div class="flex w-full gap-2">
                     <!-- Bagian Kanan Kiri Start -->
-                    <div class="p-5 my-5 relative h-fit w-1/2 bg-white rounded-lg">
+                    <div class="p-5 mt-5 relative h-fit w-1/2 bg-white rounded-lg">
                         <!-- Bar Start -->
                         <div class="flex gap-2 relative">
                             <div class="h-1 w-20 bg-primary"></div>
@@ -300,7 +228,7 @@
                     </div>
                     <!-- Bagian Kanan Kiri End -->
                     <!-- Bagian Kanan Kanan Start -->
-                    <div class="relative pb-5 my-5 relative h-fit w-1/2 bg-white rounded-lg">
+                    <div class="relative pb-5 mt-5 relative h-fit w-1/2 bg-white rounded-lg">
                         <!-- Banner Start -->
                         <img class="h-20 w-full rounded-t-lg" src="https://source.unsplash.com/1000x600?white"
                             alt="gold_banner">
@@ -322,6 +250,10 @@
                     </div>
                     <!-- Bagian Kanan Kanan End -->
                 </div>
+            </div>
+            <!-- Home End -->
+            <div x-show="sidemenu === 'my-profile'">
+                <h1>Hello World</h1>
             </div>
         </div>
         <!-- Body Page End -->
