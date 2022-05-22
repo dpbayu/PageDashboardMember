@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <script src="//unpkg.com/alpinejs" defer></script>
     <title>Dashboard Member</title>
     <script>
@@ -40,10 +41,10 @@
         <!-- Search Start -->
         <div class="flex border-2 relative border-black rounded my-4">
             <input type="text" class="px-4 h-5 w-[450px]">
-                <svg class="absolute top-0 right-1 text-slate-500 w-5 h-5 fill-current" viewBox="0 0 24 24">
-                    <path
-                        d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
-                </svg>
+            <svg class="absolute top-0 right-1 text-slate-500 w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path
+                    d="M16.32 14.9l5.39 5.4a1 1 0 0 1-1.42 1.4l-5.38-5.38a8 8 0 1 1 1.41-1.41zM10 16a6 6 0 1 0 0-12 6 6 0 0 0 0 12z" />
+            </svg>
         </div>
         <!-- Start End -->
         <!-- Logo Start -->
@@ -79,6 +80,7 @@
         <!-- Profile End -->
     </header>
     <!-- Header End -->
+    <!-- Body Start -->
     <div class="h-fit grid grid-cols-12 container mx-auto my-5">
         <!-- Side Menu Start -->
         <div class="col-start-2 col-span-3 mr-10 h-full bg-white rounded-lg">
@@ -101,20 +103,20 @@
                     <div x-on:click="open = true">
                         <div class="flex justify-between pl-10 pr-5 relative" x-data="{selected : false}"
                             @click.outside="selected = false" x-on:click="selected = true">
-                            <div class="flex gap-5">
+                            <div class="flex gap-5 mb-5">
                                 <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
                                     <circle cx="12" cy="8" r="4" />
                                     <path
                                         d="M20,19v1a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V19a6,6,0,0,1,6-6h4A6,6,0,0,1,20,19Z" />
                                 </svg>
-                                <button class="font-semibold">My Profile</button>
+                                <button class="font-semibold">BeeRewards</button>
                             </div>
                             <div class="flex-col">
                                 <svg class="w-7 h-7 fill-current transition-all" x-bind:class="{'rotate' : selected}"
                                     viewBox="0 0 512 512">
                                     <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
                                 </svg>
-                                <ul class="absolute top-5 left-0 my-2 w-full" x-show="open"
+                                <ul class="absolute top-5 left-0 my-1 w-full" x-show="open"
                                     @click.outside="open = false" x-transition>
                                     <div @click.prevent="sidemenu='my-profile'">
                                         <li class="my-2 px-[90px] py-1"
@@ -127,13 +129,15 @@
                     </div>
                 </li>
                 <!-- My Profile End -->
+                <!-- BeeRewards Start -->
+                <!-- BeeRewards End -->
             </ul>
         </div>
         <!-- Side Menu End -->
         <!-- Body Page Start -->
         <div class="col-span-7 h-full h-fit">
             <!-- Home Start -->
-            <div x-show="sidemenu === 'home1'">
+            <div x-show="sidemenu === 'home'">
                 <!-- Bagian Kanan Atas Start -->
                 <div class="pb-5 relative h-fit bg-white rounded-lg">
                     <img class="h-36 w-full rounded-t-lg" src="https://source.unsplash.com/1000x600?park" alt="banner">
@@ -251,7 +255,8 @@
                 </div>
             </div>
             <!-- Home End -->
-            <div x-show="sidemenu === 'home'">
+            <!-- My Profile Start -->
+            <div x-show="sidemenu === 'my-profile'">
                 <div class="pb-5 h-fit bg-white rounded-lg relative">
                     <!-- Banner Start -->
                     <img class="rounded-t-lg h-24 w-full" src="https://source.unsplash.com/1000x600?white"
@@ -277,11 +282,107 @@
                     </div>
                     <p class="text-center mt-5 mb-10">GANTI FOTO</p>
                     <!-- Profile Image End -->
+                    <!-- Biodata Start -->
+                    <div class="px-10">
+                        <!-- Radio Button Jenis Kelamin Start -->
+                        <p class="mb-2">Jenis Kelamin</p>
+                        <div class="flex gap-10 text-sm">
+                            <div class="form-check cursor-pointer flex items-center">
+                                <input
+                                    class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-600 checked:border-orange-600 transition duration-200 cursor-pointer"
+                                    type="radio" name="flexRadioDefault" id="radiolaki-laki" checked>
+                                <label class="form-check-label cursor-pointer ml-2" for="radiolaki-laki">
+                                    Laki-laki</label>
+                            </div>
+                            <div class="form-check cursor-pointer flex items-center">
+                                <input
+                                    class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-600 checked:border-orange-600 transition duration-200 cursor-pointer"
+                                    type="radio" name="flexRadioDefault" id="radioperempuan">
+                                <label class="form-check-label cursor-pointer ml-2" for="radioperempuan">
+                                    Perempuan</label>
+                            </div>
+                        </div>
+                        <!-- Radio Button Jenis Kelamin End -->
+                        <!-- Biodata Start -->
+                        <div class="my-3 text-sm">
+                            <label class="form-label">Username</label>
+                            <input type="text"
+                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded"
+                                value="@dhikazukrup1" disabled />
+                        </div>
+                        <div class="my-3 text-sm">
+                            <label class="form-label">Nama Lengkap</label>
+                            <input type="text"
+                                class="form-control w-full my-2 px-3 py-2 border border-slate-400 rounded"
+                                value="Dhika Zukrup" />
+                        </div>
+                        <div class="my-3 text-sm">
+                            <div class="flex justify-between">
+                                <label class="form-label">Biodata</label>
+                                <label class="form-label">/160</label>
+                            </div>
+                            <textarea
+                                class="w-full h-20 border border-slate-400 my-2 px-3 py-2 resize-none rounded"></textarea>
+                        </div>
+                        <div class="my-3 text-sm">
+                            <label class="form-label">Tanggal Lahir</label>
+                            <input type="text"
+                                class="form-control w-full my-2 px-3 py-2 border border-slate-400 rounded" />
+                        </div>
+                        <div class="my-3 text-sm">
+                            <label class="form-label">Email</label>
+                            <input type="text"
+                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded" />
+                        </div>
+                        <div class="my-3 text-sm">
+                            <div class="flex justify-between">
+                                <label class="form-label">Nomor Handphone</label>
+                                <label class="form-label">Ganti Nomor</label>
+                            </div> <input type="text"
+                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded" />
+                        </div>
+                        <div class="my-3 text-sm">
+                            <label class="form-label">Alamat</label>
+                            <textarea
+                                class="w-full h-20 border border-slate-400 my-2 px-3 py-2 resize-none rounded"></textarea>
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="my-3 text-sm relative">
+                                <label class="form-label">Nama Bank</label>
+                                <input type="text"
+                                    class="form-control w-full my-2 px-3 py-1 text-gray-700 bg-gray-200 border rounded" />
+                                <svg class="absolute bottom-3 right-2 w-5 h-5 fill-current" viewBox="0 0 512 512">
+                                    <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
+                                </svg>
+                            </div>
+                            <div class="my-3 text-sm">
+                                <label class="form-label">Nomor Rekening</label>
+                                <input type="text"
+                                    class="form-control w-full my-2 px-3 py-1 text-gray-700 bg-gray-200 border rounded" />
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Button Start -->
+                    <div class="flex mt-10 gap-10 justify-center">
+                        <button
+                            class="text-xl px-16 py-1 border border-secondary rounded text-secondary">CANCEL</button>
+                        <button
+                            class="text-xl px-16 py-1 border border-secondary bg-secondary text-white rounded">SAVE</button>
+                    </div>
+                    <!-- Button End -->
+                    <!-- Biodata End -->
                 </div>
             </div>
+            <!-- My Profile End -->
+            <!-- BeeRewards Start -->
+            <div x-show="sidemenu === 'bee-rewards'">
+                <h1>Hello World</h1>
+            </div>
+            <!-- BeeRewards End -->
         </div>
         <!-- Body Page End -->
     </div>
+    <!-- Body End -->
 </body>
 
 </html>
