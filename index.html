@@ -99,34 +99,31 @@
                 </li>
                 <!-- Home End -->
                 <!-- My Profile Start -->
-                <li class="w-full items-center cursor-pointer">
-                    <div x-on:click="open = true">
-                        <div class="flex justify-between pl-10 pr-5 relative" x-data="{selected : false}"
-                            @click.outside="selected = false" x-on:click="selected = true">
-                            <div class="flex gap-5 mb-5">
+                <li class="w-full items-center cursor-pointer justify-between">
+                    <div x-on:click="open = ! open">
+                        <div class="w-full flex justify-between px-10" x-data="{selected : false}"
+                            x-on:click="selected = ! open">
+                            <div class="flex gap-5">
                                 <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
                                     <circle cx="12" cy="8" r="4" />
                                     <path
                                         d="M20,19v1a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V19a6,6,0,0,1,6-6h4A6,6,0,0,1,20,19Z" />
                                 </svg>
-                                <button class="font-semibold">BeeRewards</button>
+                                <button class="font-semibold">Pesanan</button>
                             </div>
-                            <div class="flex-col">
-                                <svg class="w-7 h-7 fill-current transition-all" x-bind:class="{'rotate' : selected}"
-                                    viewBox="0 0 512 512">
-                                    <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
-                                </svg>
-                                <ul class="absolute top-5 left-0 my-1 w-full" x-show="open"
-                                    @click.outside="open = false" x-transition>
-                                    <div @click.prevent="sidemenu='my-profile'">
-                                        <li class="my-2 px-[90px] py-1"
-                                            :class="{'bg-orange-100 w-full text-orange-500': sidemenu === 'my-profile'}">
-                                            Edit Profile</li>
-                                    </div>
-                                </ul>
-                            </div>
+                            <svg class="w-7 h-7 fill-current transition-all" x-bind:class="{'rotate' : selected}"
+                                viewBox="0 0 512 512">
+                                <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
+                            </svg>
                         </div>
                     </div>
+                    <ul class=my-1 w-full" x-show="open" x-transition>
+                        <div @click.prevent="sidemenu = 'my-profile'">
+                            <li class="my-2 pl-[90px] py-1"
+                                :class="{'bg-orange-100 w-full text-orange-500': sidemenu === 'my-profile'}">
+                                Edit Profile</li>
+                        </div>
+                    </ul>
                 </li>
                 <!-- My Profile End -->
                 <!-- BeeRewards Start -->
@@ -332,14 +329,17 @@
                         <div class="my-3 text-sm">
                             <label class="form-label">Email</label>
                             <input type="text"
-                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded" />
+                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded"
+                                disabled />
                         </div>
                         <div class="my-3 text-sm">
                             <div class="flex justify-between">
                                 <label class="form-label">Nomor Handphone</label>
                                 <label class="form-label">Ganti Nomor</label>
-                            </div> <input type="text"
-                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded" />
+                            </div>
+                            <input type="text"
+                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded"
+                                disabled />
                         </div>
                         <div class="my-3 text-sm">
                             <label class="form-label">Alamat</label>
@@ -350,7 +350,8 @@
                             <div class="my-3 text-sm relative">
                                 <label class="form-label">Nama Bank</label>
                                 <input type="text"
-                                    class="form-control w-full my-2 px-3 py-1 text-gray-700 bg-gray-200 border rounded" />
+                                    class="form-control w-full my-2 px-3 py-1 text-gray-700 bg-gray-200 border rounded"
+                                    disabled />
                                 <svg class="absolute bottom-3 right-2 w-5 h-5 fill-current" viewBox="0 0 512 512">
                                     <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
                                 </svg>
@@ -358,7 +359,8 @@
                             <div class="my-3 text-sm">
                                 <label class="form-label">Nomor Rekening</label>
                                 <input type="text"
-                                    class="form-control w-full my-2 px-3 py-1 text-gray-700 bg-gray-200 border rounded" />
+                                    class="form-control w-full my-2 px-3 py-1 text-gray-700 bg-gray-200 border rounded"
+                                    disabled />
                             </div>
                         </div>
                     </div>
