@@ -31,7 +31,6 @@
 
 <body class="bg-yellow-700" x-data="{
     sidemenu: 'home',
-    open: false,
 }">
     <!-- Header Start -->
     <header class="flex py-3 items-center bg-white justify-evenly">
@@ -99,17 +98,17 @@
                 </li>
                 <!-- Home End -->
                 <!-- My Profile Start -->
-                <li class="w-full items-center cursor-pointer justify-between">
+                <li class="w-full items-center cursor-pointer justify-between" x-data="{ open: false }">
                     <div x-on:click="open = ! open">
-                        <div class="w-full flex justify-between px-10" x-data="{selected : false}"
-                            x-on:click="selected = ! open">
+                        <div class="w-full flex justify-between px-10" x-data="{selected:false}"
+                            x-on:click="selected=!open">
                             <div class="flex gap-5">
                                 <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
                                     <circle cx="12" cy="8" r="4" />
                                     <path
                                         d="M20,19v1a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V19a6,6,0,0,1,6-6h4A6,6,0,0,1,20,19Z" />
                                 </svg>
-                                <button class="font-semibold">Pesanan</button>
+                                <button class="font-semibold">My Profile</button>
                             </div>
                             <svg class="w-7 h-7 fill-current transition-all" x-bind:class="{'rotate' : selected}"
                                 viewBox="0 0 512 512">
@@ -117,16 +116,47 @@
                             </svg>
                         </div>
                     </div>
-                    <ul class=my-1 w-full" x-show="open" x-transition>
-                        <div @click.prevent="sidemenu = 'my-profile'">
-                            <li class="my-2 pl-[90px] py-1"
-                                :class="{'bg-orange-100 w-full text-orange-500': sidemenu === 'my-profile'}">
+                    <ul class="my-1 w-full" x-show="open" x-transition>
+                        <div @click.prevent="sidemenu = 'myProfile'">
+                            <li class="mt-2 pl-[90px] py-1"
+                                :class="{'bg-orange-100 w-full text-orange-500': sidemenu === 'myProfile'}">
                                 Edit Profile</li>
                         </div>
                     </ul>
                 </li>
                 <!-- My Profile End -->
                 <!-- BeeRewards Start -->
+                <li class="w-full items-center cursor-pointer justify-between" x-data="{ open: false }">
+                    <div x-on:click="open = ! open">
+                        <div class="w-full flex justify-between px-10" x-data="{selected:false}"
+                            x-on:click="selected=!open">
+                            <div class="flex gap-5">
+                                <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="8" r="4" />
+                                    <path
+                                        d="M20,19v1a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V19a6,6,0,0,1,6-6h4A6,6,0,0,1,20,19Z" />
+                                </svg>
+                                <button class="font-semibold">BeeRewards</button>
+                            </div>
+                            <svg class="w-7 h-7 fill-current transition-all" x-bind:class="{'rotate' : selected}"
+                                viewBox="0 0 512 512">
+                                <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
+                            </svg>
+                        </div>
+                    </div>
+                    <ul class="my-1 w-full" x-show="open" x-transition>
+                        <div @click.prevent="sidemenu = 'beeRewards'">
+                            <li class="mt-2 pl-[90px] py-1"
+                                :class="{'bg-orange-100 w-full text-orange-500': sidemenu === 'beeRewards'}">
+                                My Rewards</li>
+                        </div>
+                        <div @click.prevent="sidemenu = 'beeRewards'">
+                            <li class="pl-[90px] py-1"
+                                :class="{'bg-orange-100 w-full text-orange-500': sidemenu === ''}">
+                                Invite</li>
+                        </div>
+                    </ul>
+                </li>
                 <!-- BeeRewards End -->
             </ul>
         </div>
@@ -134,9 +164,9 @@
         <!-- Body Page Start -->
         <div class="col-span-7 h-full h-fit">
             <!-- Home Start -->
-            <div x-show="sidemenu === 'home'">
+            <div x-show="sidemenu === 'home1'">
                 <!-- Bagian Kanan Atas Start -->
-                <div class="pb-5 relative h-fit bg-white rounded-lg">
+                <div class="pb-5 relative h-fit bg-white rounded-lg shadow-lg">
                     <img class="h-36 w-full rounded-t-lg" src="https://source.unsplash.com/1000x600?park" alt="banner">
                     <div class="flex -mt-10 items-end justify-between">
                         <div class="flex items-end gap-5 ml-10">
@@ -193,9 +223,10 @@
                     <!-- Follower & Following End -->
                 </div>
                 <!-- Bagian Kanan Atas End -->
+                <!-- Bagian Kanan Bawah Start -->
                 <div class="flex w-full gap-2">
                     <!-- Bagian Kanan Kiri Start -->
-                    <div class="p-5 mt-5 relative h-fit w-1/2 bg-white rounded-lg">
+                    <div class="p-5 mt-5 relative h-fit w-1/2 bg-white rounded-lg shadow-lg">
                         <!-- Bar Start -->
                         <div class="flex gap-2 relative">
                             <div class="h-1 w-20 bg-primary"></div>
@@ -228,7 +259,7 @@
                     </div>
                     <!-- Bagian Kanan Kiri End -->
                     <!-- Bagian Kanan Kanan Start -->
-                    <div class="relative pb-5 mt-5 relative h-fit w-1/2 bg-white rounded-lg">
+                    <div class="relative pb-5 mt-5 relative h-fit w-1/2 bg-white rounded-lg shadow-lg">
                         <!-- Banner Start -->
                         <img class="h-20 w-full rounded-t-lg" src="https://source.unsplash.com/1000x600?white"
                             alt="gold_banner">
@@ -250,11 +281,12 @@
                     </div>
                     <!-- Bagian Kanan Kanan End -->
                 </div>
+                <!-- Bagian Kanan Bawah eND -->
             </div>
             <!-- Home End -->
             <!-- My Profile Start -->
-            <div x-show="sidemenu === 'my-profile'">
-                <div class="pb-5 h-fit bg-white rounded-lg relative">
+            <div x-show="sidemenu === 'myProfile'">
+                <div class="pb-5 h-fit bg-white rounded-lg relative shadow-lg">
                     <!-- Banner Start -->
                     <img class="rounded-t-lg h-24 w-full" src="https://source.unsplash.com/1000x600?white"
                         alt="bannerMyProfile">
@@ -377,7 +409,7 @@
             </div>
             <!-- My Profile End -->
             <!-- BeeRewards Start -->
-            <div x-show="sidemenu === 'bee-rewards'">
+            <div x-show="sidemenu === 'home'">
                 <h1>Hello World</h1>
             </div>
             <!-- BeeRewards End -->
