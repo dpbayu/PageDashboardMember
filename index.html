@@ -131,10 +131,9 @@
                         <div class="w-full flex justify-between px-10" x-data="{selected:false}"
                             x-on:click="selected=!open">
                             <div class="flex gap-5">
-                                <svg class="w-7 h-7 fill-current" viewBox="0 0 24 24">
-                                    <circle cx="12" cy="8" r="4" />
+                                <svg class="h-7 w-7 fill-current" viewBox="0 0 1792 1792">
                                     <path
-                                        d="M20,19v1a1,1,0,0,1-1,1H5a1,1,0,0,1-1-1V19a6,6,0,0,1,6-6h4A6,6,0,0,1,20,19Z" />
+                                        d="M1056 1356v-716h-320v716q0 25 18 38.5t46 13.5h192q28 0 46-13.5t18-38.5zm-456-844h195l-126-161q-26-31-69-31-40 0-68 28t-28 68 28 68 68 28zm688-96q0-40-28-68t-68-28q-43 0-69 31l-125 161h194q40 0 68-28t28-68zm376 256v320q0 14-9 23t-23 9h-96v416q0 40-28 68t-68 28h-1088q-40 0-68-28t-28-68v-416h-96q-14 0-23-9t-9-23v-320q0-14 9-23t23-9h440q-93 0-158.5-65.5t-65.5-158.5 65.5-158.5 158.5-65.5q107 0 168 77l128 165 128-165q61-77 168-77 93 0 158.5 65.5t65.5 158.5-65.5 158.5-158.5 65.5h440q14 0 23 9t9 23z" />
                                 </svg>
                                 <button class="font-semibold">BeeRewards</button>
                             </div>
@@ -150,9 +149,9 @@
                                 :class="{'bg-orange-100 w-full text-orange-500': sidemenu === 'beeRewards'}">
                                 My Rewards</li>
                         </div>
-                        <div @click.prevent="sidemenu = 'beeRewards'">
+                        <div @click.prevent="sidemenu = 'invite'">
                             <li class="pl-[90px] py-1"
-                                :class="{'bg-orange-100 w-full text-orange-500': sidemenu === ''}">
+                                :class="{'bg-orange-100 w-full text-orange-500': sidemenu === 'invite'}">
                                 Invite</li>
                         </div>
                     </ul>
@@ -409,10 +408,339 @@
             </div>
             <!-- My Profile End -->
             <!-- BeeRewards Start -->
-            <div x-show="sidemenu === 'home'">
-                <h1>Hello World</h1>
+            <div x-show="sidemenu === 'beeRewards'">
+                <!-- Kanan Atas Start -->
+                <div class="relative">
+                    <img class="rounded-t-lg h-60 w-full" src="https://source.unsplash.com/1000x600?orange" />
+                    <div class="absolute top-10 left-10 text-white">
+                        <p class="text-7xl font-bold">PSI</p>
+                        <p class="text-lg font-medium">Profit Sharing Index</p>
+                        <p class="text-lg font-medium">80% beeCash</p>
+                        <p class="text-lg font-medium">20% beePoint</p>
+                        <p class="text-lg font-medium">INVITE TEMANMU SEKARANG JUGA </p>
+                    </div>
+                </div>
+                <!-- Kanan Atas End -->
+                <!-- Kanan Tengah Start -->
+                <div class="mt-10 bg-white pb-5 rounded-lg relative">
+                    <img class="rounded-t-lg h-28 w-full" src="https://source.unsplash.com/1000x600?gold" />
+                    <div class="absolute top-5 left-10 font-medium">
+                        <p>Dhika Zukrup</p>
+                        <p class="text-3xl">Gold Member</p>
+                    </div>
+                    <div class="flex gap-5 mt-5 justify-center text-center divide-x-2 divide-gray-300 text-secondary">
+                        <div class="flex-col">
+                            <p class="mx-20 text-xl font-medium">BeeCash</p>
+                            <p class="mt-5 text-xl">0</p>
+                        </div>
+                        <div class="flex-col">
+                            <p class="mx-20 text-xl font-medium">BeePoint</p>
+                            <p class="mt-5 text-xl">0</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kanan Tengah End -->
+                <!-- Kanan Bawah Start -->
+                <div class="mt-10 bg-white pb-5 rounded-lg relative">
+                    <div class="ml-5 flex items-center gap-5">
+                        <svg class="h-10 w-10" viewBox="0 0 64 64">
+                            <path
+                                d="M48.211,34.5a5.82,5.82,0,0,1,4.943-5.771A.976.976,0,0,0,54,27.771V24.963A.974.974,0,0,0,53.014,24H10.986a.974.974,0,0,0-.986.963v2.808a.976.976,0,0,0,.846.958,5.84,5.84,0,0,1,0,11.542.976.976,0,0,0-.846.958v2.808a.978.978,0,0,0,.986.963H53.014A.978.978,0,0,0,54,44.037V41.229a.976.976,0,0,0-.846-.958A5.82,5.82,0,0,1,48.211,34.5Z"
+                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                            <line
+                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                x1="20" x2="20" y1="24" y2="27" />
+                            <line
+                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                x1="20" x2="20" y1="31" y2="33" />
+                            <line
+                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                x1="20" x2="20" y1="42" y2="45" />
+                            <circle cx="31.5" cy="31.5" r="1.5"
+                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                            <circle cx="37.5" cy="37.5" r="1.5"
+                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                            <line
+                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                x1="20" x2="20" y1="36" y2="38" />
+                            <line
+                                style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                x1="29" x2="40" y1="41" y2="28" />
+                        </svg>
+                        <p class="text-xl font-medium">My Voucher</p>
+                    </div>
+                    <p class="font-medium ml-20">Jangan lupa gunakan voucher mu</p>
+                    <div class="w-full h-[1px] bg-slate-200 my-2"></div>
+                    <div class="flex mx-5 gap-5 justify-between">
+                        <!-- Voucher 1 Start -->
+                        <div class="h-fit w-fit shadow-lg">
+                            <div class="relative">
+                                <img class="h-48 w-48" src="https://source.unsplash.com/1000x600?white" />
+                                <div class="absolute top-12 left-10 text-center">
+                                    <p>You've got a <br> <span class="text-2xl font-medium">VOUCHER</span></p>
+                                </div>
+                                <p class="absolute bottom-2 left-1 text-sm font-bold">Welcome Voucher</p>
+                            </div>
+                            <p class="text-[9px] text-right mr-1 my-2">Berlaku hingga 22 Januari 2021</p>
+                            <div class="flex justify-between mx-1">
+                                <div class="flex items-center gap-1">
+                                    <svg class="h-5 w-5" viewBox="0 0 64 64">
+                                        <path
+                                            d="M48.211,34.5a5.82,5.82,0,0,1,4.943-5.771A.976.976,0,0,0,54,27.771V24.963A.974.974,0,0,0,53.014,24H10.986a.974.974,0,0,0-.986.963v2.808a.976.976,0,0,0,.846.958,5.84,5.84,0,0,1,0,11.542.976.976,0,0,0-.846.958v2.808a.978.978,0,0,0,.986.963H53.014A.978.978,0,0,0,54,44.037V41.229a.976.976,0,0,0-.846-.958A5.82,5.82,0,0,1,48.211,34.5Z"
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="24" y2="27" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="31" y2="33" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="42" y2="45" />
+                                        <circle cx="31.5" cy="31.5" r="1.5"
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                                        <circle cx="37.5" cy="37.5" r="1.5"
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="36" y2="38" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="29" x2="40" y1="41" y2="28" />
+                                    </svg>
+                                    <p class="text-[10px] text-slate-400">KBS344JGK</p>
+                                </div>
+                                <p class="text-primary text-[10px]">Copy Vouchermu</p>
+                            </div>
+                        </div>
+                        <!-- Voucher 1 End -->
+                        <!-- Voucher 2 Start -->
+                        <div class="h-fit w-fit shadow-lg">
+                            <div class="relative">
+                                <img class="h-48 w-48" src="https://source.unsplash.com/1000x600?white" />
+                                <div class="absolute top-12 left-10 text-center">
+                                    <p>You've got a <br> <span class="text-2xl font-medium">VOUCHER</span></p>
+                                </div>
+                                <p class="absolute bottom-2 left-1 text-sm font-bold">Welcome Voucher</p>
+                            </div>
+                            <p class="text-[9px] text-right mr-1 my-2">Berlaku hingga 22 Januari 2021</p>
+                            <div class="flex justify-between mx-1">
+                                <div class="flex items-center gap-1">
+                                    <svg class="h-5 w-5" viewBox="0 0 64 64">
+                                        <path
+                                            d="M48.211,34.5a5.82,5.82,0,0,1,4.943-5.771A.976.976,0,0,0,54,27.771V24.963A.974.974,0,0,0,53.014,24H10.986a.974.974,0,0,0-.986.963v2.808a.976.976,0,0,0,.846.958,5.84,5.84,0,0,1,0,11.542.976.976,0,0,0-.846.958v2.808a.978.978,0,0,0,.986.963H53.014A.978.978,0,0,0,54,44.037V41.229a.976.976,0,0,0-.846-.958A5.82,5.82,0,0,1,48.211,34.5Z"
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="24" y2="27" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="31" y2="33" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="42" y2="45" />
+                                        <circle cx="31.5" cy="31.5" r="1.5"
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                                        <circle cx="37.5" cy="37.5" r="1.5"
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="36" y2="38" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="29" x2="40" y1="41" y2="28" />
+                                    </svg>
+                                    <p class="text-[10px] text-slate-400">KBS344JGK</p>
+                                </div>
+                                <p class="text-primary text-[10px]">Copy Vouchermu</p>
+                            </div>
+                        </div>
+                        <!-- Voucher 2 End -->
+                        <!-- Voucher 3 Start -->
+                        <div class="h-fit w-fit shadow-lg">
+                            <div class="relative">
+                                <img class="h-48 w-48" src="https://source.unsplash.com/1000x600?white" />
+                                <div class="absolute top-12 left-10 text-center">
+                                    <p>You've got a <br> <span class="text-2xl font-medium">VOUCHER</span></p>
+                                </div>
+                                <p class="absolute bottom-2 left-1 text-sm font-bold">Welcome Voucher</p>
+                            </div>
+                            <p class="text-[9px] text-right mr-1 my-2">Berlaku hingga 22 Januari 2021</p>
+                            <div class="flex justify-between mx-1">
+                                <div class="flex items-center gap-1">
+                                    <svg class="h-5 w-5" viewBox="0 0 64 64">
+                                        <path
+                                            d="M48.211,34.5a5.82,5.82,0,0,1,4.943-5.771A.976.976,0,0,0,54,27.771V24.963A.974.974,0,0,0,53.014,24H10.986a.974.974,0,0,0-.986.963v2.808a.976.976,0,0,0,.846.958,5.84,5.84,0,0,1,0,11.542.976.976,0,0,0-.846.958v2.808a.978.978,0,0,0,.986.963H53.014A.978.978,0,0,0,54,44.037V41.229a.976.976,0,0,0-.846-.958A5.82,5.82,0,0,1,48.211,34.5Z"
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="24" y2="27" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="31" y2="33" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="42" y2="45" />
+                                        <circle cx="31.5" cy="31.5" r="1.5"
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                                        <circle cx="37.5" cy="37.5" r="1.5"
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="20" x2="20" y1="36" y2="38" />
+                                        <line
+                                            style="fill:none;stroke:#000;stroke-linecap:round;stroke-miterlimit:10;stroke-width:2px"
+                                            x1="29" x2="40" y1="41" y2="28" />
+                                    </svg>
+                                    <p class="text-[10px] text-slate-400">KBS344JGK</p>
+                                </div>
+                                <p class="text-primary text-[10px]">Copy Vouchermu</p>
+                            </div>
+                        </div>
+                        <!-- Voucher 3 End -->
+                    </div>
+                </div>
+                <!-- Kanan Bawah End -->
             </div>
             <!-- BeeRewards End -->
+            <!-- Invite Start -->
+            <div x-show="sidemenu === 'home">
+                <div class="bg-white h-fit pb-5 rounded-lg">
+                    <!-- Kanan Atas Start -->
+                    <div class="relative">
+                        <img class="rounded-t-lg h-96 w-full" src="https://source.unsplash.com/1000x600?cat" />
+                        <div class="absolute top-10 left-10 text-white">
+                            <p class="font-medium text-xl">Invite you friends to be a <br>part of Beemall and get
+                                <br><span class="text-4xl">BeePoint !</span></p>
+                        </div>
+                        <!-- Card Start -->
+                        <div class="flex justify-between mx-5 my-5">
+                            <!-- 1 Start -->
+                            <div class="flex-col text-center px-5">
+                                <svg class="bg-rose-50 fill-current ml-5 text-secondary rounded-full p-1 h-40 w-40"
+                                    viewBox="0 0 512 512">
+                                    <path
+                                        d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
+                                    <path
+                                        d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
+                                </svg>
+                                <p class="text-sm text-primary font-medium mt-2">INVITE YOUR FRIENDS</p>
+                                <P class="text-xs">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
+                                    aliquam doloribus commodi? Ut, repellat mollitia?</P>
+                            </div>
+                            <!-- 1 End -->
+                            <!-- 2 Start -->
+                            <div class="flex-col text-center px-5">
+                                <svg class="bg-rose-50 fill-current ml-5 text-secondary rounded-full p-1 h-40 w-40"
+                                    viewBox="0 0 512 512">
+                                    <path
+                                        d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
+                                    <path
+                                        d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
+                                </svg>
+                                <p class="text-sm text-primary font-medium mt-2">INVITE YOUR FRIENDS</p>
+                                <P class="text-xs">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
+                                    aliquam doloribus commodi? Ut, repellat mollitia?</P>
+                            </div>
+                            <!-- 2 End -->
+                            <!-- 3 Start -->
+                            <div class="flex-col text-center px-5">
+                                <svg class="bg-rose-50 fill-current ml-5 text-secondary rounded-full p-1 h-40 w-40"
+                                    viewBox="0 0 512 512">
+                                    <path
+                                        d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
+                                    <path
+                                        d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
+                                </svg>
+                                <p class="text-sm text-primary font-medium mt-2">INVITE YOUR FRIENDS</p>
+                                <P class="text-xs">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas
+                                    aliquam doloribus commodi? Ut, repellat mollitia?</P>
+                            </div>
+                            <!-- 3 End  -->
+                        </div>
+                        <!-- Card End -->
+                        <!-- Invite by Email Start -->
+                        <div class="bg-rose-50 h-fit mx-10 px-5 py-5 rounded-md">
+                            <p class="text-lg">Kirim undangan via Email</p>
+                            <div class="flex mt-1 items-center gap-5">
+                                <input type="email"
+                                    class="form-control w-[475px] blockw-full px-3 py-2 border border-solid border-gray-300 rounded transition ease-in-out"
+                                    placeholder="Masukka email temanmu" />
+                                <button class="px-5 py-2 bg-primary rounded-md text-white font-medium">Kirim
+                                    Email</button>
+                            </div>
+                            <div class="flex justify-between">
+                                <!-- Kiri Start -->
+                                <div class="flex mt-5 gap-5">
+                                    <svg class="bg-primary fill-current text-white rounded-full p-2 h-10 w-10"
+                                        viewBox="0 0 512 512">
+                                        <path
+                                            d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
+                                        <path
+                                            d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
+                                    </svg>
+                                    <div class="flex-col">
+                                        <p>SHARE IMAGE</p>
+                                        <p class="text-[10px] text-slate-400">Generate image dan bagikan ke temanmu</p>
+                                        <button class="px-2 py-1 bg-secondary text-white rounded mt-3">Share
+                                            Image</button>
+                                    </div>
+                                </div>
+                                <!-- Kiri End -->
+                                <!-- Kanan Start -->
+                                <div class="flex mt-5 gap-5">
+                                    <svg class="bg-primary fill-current text-white rounded-full p-2 h-10 w-10"
+                                        viewBox="0 0 512 512">
+                                        <path
+                                            d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
+                                        <path
+                                            d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
+                                    </svg>
+                                    <div class="flex-col">
+                                        <p>SHARE</p>
+                                        <p class="text-[10px] text-slate-400">Bagikan referal anda ketemanmu via media
+                                            sosial</p>
+                                        <div class="flex gap-2 mt-2">
+                                            <svg class="bg-primary fill-current text-white rounded-full p-1 h-6 w-6"
+                                                viewBox="0 0 512 512">
+                                                <path
+                                                    d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
+                                                <path
+                                                    d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
+                                            </svg>
+                                            <svg class="bg-primary fill-current text-white rounded-full p-1 h-6 w-6"
+                                                viewBox="0 0 512 512">
+                                                <path
+                                                    d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
+                                                <path
+                                                    d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
+                                            </svg>
+                                            <svg class="bg-primary fill-current text-white rounded-full p-1 h-6 w-6"
+                                                viewBox="0 0 512 512">
+                                                <path
+                                                    d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
+                                                <path
+                                                    d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
+                                            </svg>
+                                            <svg class="bg-primary fill-current text-white rounded-full p-1 h-6 w-6"
+                                                viewBox="0 0 512 512">
+                                                <path
+                                                    d="M430.4,147h-67.5l-40.4-40.8c0,0-0.2-0.2-0.3-0.2l-0.2-0.2v0c-6-6-14.1-9.8-23.3-9.8h-84c-9.8,0-18.5,4.2-24.6,10.9l0,0.1   l-39.5,40H81.6C63,147,48,161.6,48,180.2v202.1c0,18.6,15,33.7,33.6,33.7h348.8c18.5,0,33.6-15.1,33.6-33.7V180.2   C464,161.6,448.9,147,430.4,147z M256,365.5c-50.9,0-92.4-41.6-92.4-92.6c0-51.1,41.5-92.6,92.4-92.6c51,0,92.4,41.5,92.4,92.6   C348.4,323.9,307,365.5,256,365.5z M424.1,200.5c-7.7,0-14-6.3-14-14.1s6.3-14.1,14-14.1c7.7,0,14,6.3,14,14.1   S431.8,200.5,424.1,200.5z" />
+                                                <path
+                                                    d="M256,202.9c-38.6,0-69.8,31.3-69.8,70c0,38.6,31.2,70,69.8,70c38.5,0,69.8-31.3,69.8-70C325.8,234.2,294.5,202.9,256,202.9   z" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Kanan End -->
+                            </div>
+                        </div>
+                        <!-- Invite By Email End -->
+                    </div>
+                    <!-- Kanan Atas End -->
+                </div>
+            </div>
+            <!-- Invite End -->
         </div>
         <!-- Body Page End -->
     </div>
