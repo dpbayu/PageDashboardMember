@@ -36,6 +36,7 @@
 
 <body class="bg-yellow-700" x-data="{
     sidemenu: 'home',
+    tab: 'onProcess',
 }">
     <!-- Header Start -->
     <header class="flex py-3 items-center bg-white justify-evenly">
@@ -205,7 +206,7 @@
         <!-- Body Page Start -->
         <div class="col-span-7 h-full h-fit">
             <!-- Home Start -->
-            <div x-show="sidemenu === 'home'">
+            <div x-show="sidemenu === 'home1'">
                 <!-- Bagian Kanan Atas Start -->
                 <div class="pb-5 relative h-fit bg-white rounded-lg shadow-lg">
                     <img class="h-36 w-full rounded-t-lg" src="https://source.unsplash.com/1000x600?park" alt="banner">
@@ -804,25 +805,234 @@
             </div>
             <!-- Invite End -->
             <!-- My Order Start -->
-            <div x-show="sidemenu === 'myOrder'">
+            <div x-show="sidemenu === 'home'">
                 <!-- Menu Start -->
-                <div class="bg-white py-10 rounded-lg">
-                    <div class="flex justify-between mx-10">
-                        <button>On Process</button>
-                        <button>Packing</button>
-                        <button>On Delivery</button>
-                        <button>Delivered</button>
-                        <button>Finished</button>
-                        <button>Failed</button>
-                    </div>
+                <div class="rounded py-5">
+                    <ul class="flex w-full bg-white justify-between font-semibold rounded-lg p-5">
+                        <li class="mr-1">
+                            <a class="inline-block pb-5 pt-2 px-4 font-semibold hover:text-orange-600"
+                                :class="{'text-orange-500 border-primary border-b-2': tab === 'onProcess'}" href="#"
+                                @click.prevent="tab = 'onProcess'">On Process</a>
+                        </li>
+                        <li class="mr-1">
+                            <a class="inline-block pb-5 pt-2 px-4 font-semibold hover:text-orange-600"
+                                :class="{'text-orange-500 border-primary border-b-2': tab === 'packing'}" href="#"
+                                @click.prevent="tab = 'packing'">Packing</a>
+                        </li>
+                        <li class="mr-1">
+                            <a class="inline-block pb-5 pt-2 px-4 font-semibold hover:text-orange-600"
+                                :class="{'text-orange-500 border-primary border-b-2': tab === 'onDelivery'}" href="#"
+                                @click.prevent="tab = 'onDelivery'">On Delivery</a>
+                        </li>
+                        <li class="mr-1">
+                            <a class="inline-block pb-5 pt-2 px-4 font-semibold hover:text-orange-600"
+                                :class="{'text-orange-500 border-primary border-b-2': tab === 'delivered'}" href="#"
+                                @click.prevent="tab = 'delivered'">Delivered</a>
+                        </li>
+                        <li class="mr-1">
+                            <a class="inline-block pb-5 pt-2 px-4 font-semibold hover:text-orange-600"
+                                :class="{'text-orange-500 border-primary border-b-2': tab === 'finished'}" href="#"
+                                @click.prevent="tab = 'finished'">Finished</a>
+                        </li>
+                        <li class="mr-1">
+                            <a class="inline-block pb-5 pt-2 px-4 font-semibold hover:text-orange-600"
+                                :class="{'text-orange-500 border-primary border-b-2': tab === 'failed'}" href="#"
+                                @click.prevent="tab = 'failed'">Failed</a>
+                        </li>
+                    </ul>
                 </div>
                 <!-- Menu End -->
-                <!-- Body Atas Start -->
-                <div class="mt-5 rounded-lg bg-white rounded pb-5">
-                    <p class="text-right mx-5 py-2">BELUM BAYAR</p>
-                    <!-- Produk Start -->
-                    <div class="border-2 mx-5 border-slate-400 p-3 rounded-lg">
+                <!-- On Process Start -->
+                <div x-show="tab === 'onProcess1'">
+                    <!-- Body Atas Start -->
+                    <div class="rounded-lg bg-white rounded pb-5">
+                        <p class="text-right mx-5 py-2">BELUM BAYAR</p>
+                        <!-- Produk Start -->
+                        <div class="border-2 mx-5 border-slate-400 p-3 rounded-lg">
+                            <div class="flex justify-between">
+                                <div class="flex gap-5">
+                                    <img class="h-24 w-14" src="https://source.unsplash.com/1000x600?dog" alt="produk">
+                                    <div class="flex-col">
+                                        <p class="text-xl">MUKKA</p>
+                                        <P class="text-sm">MUKKA LIP CREAM MATEE</P>
+                                        <div class="flex items-center gap-5">
+                                            <p class="text-xs text-slate-400">Varian</p>
+                                            <p>ORANGE</p>
+                                        </div>
+                                        <p>X 1</p>
+                                    </div>
+                                </div>
+                                <div class="flex-col">
+                                    <p class="text-right"><s class="text-slate-500">Rp 28.000</s></p>
+                                    <p class="text-primary font-medium">Rp 25.200</p>
+                                    <p class="text-right mt-5 text-xl font-thin text-primary">-10%</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Produk End -->
+                        <div class="flex justify-end items-center mx-5">
+                            <div class="flex items-center gap-2">
+                                <div class="hex my-5 relative w-12 h-10 bg-primary rotate-90">
+                                    <svg class="fill-current absolute text-white top-1 left-2 rounded-full p-1 h-8 w-8 -rotate-90"
+                                        viewBox="0 0 24 24">
+                                        <path
+                                            d="M24,6c0-2.2-1.8-4-4-4H4C1.8,2,0,3.8,0,6v12c0,2.2,1.8,4,4,4h16c2.2,0,4-1.8,4-4V6z M6,6c1.1,0,2,0.9,2,2   c0,1.1-0.9,2-2,2S4,9.1,4,8C4,6.9,4.9,6,6,6z M22,18c0,1.1-0.9,2-2,2H4.4c-0.9,0-1.3-1.1-0.7-1.7l3.6-3.6c0.4-0.4,1-0.4,1.4,0   l0.6,0.6c0.4,0.4,1,0.4,1.4,0l6.6-6.6c0.4-0.4,1-0.4,1.4,0l3,3c0.2,0.2,0.3,0.4,0.3,0.7V18z" />
+                                    </svg>
+                                </div>
+                                <p>Jumlah yang harus dibayar</p>
+                            </div>
+                            <p class="text-2xl font-medium text-secondary ml-5">Rp 32.200</p>
+                        </div>
+                        <div class="border-2 justify-between bg-orange-100 flex p-5 border-orange-100 items-center">
+                            <p class="text-[10px] text-slate-400">Bayar sebelum 08-01-2021 09:30 dengan Bank BCA (Dicek
+                                otomatis)</p>
+                            <button class="px-2 bg-white py-1 shadow-lg rounded-sm text-[10px]">Batalkan
+                                Pesanan</button>
+                            <button class="px-2 bg-white py-1 shadow-lg rounded-sm text-[10px]">Ubah Metode
+                                Pembayaran</button>
+                            <button class="px-2 bg-orange-500 text-white py-1 shadow-lg rounded-sm text-[10px]">Bayar
+                                Sekarang</button>
+                        </div>
+                        <div class="flex justify-between gap-1 my-5">
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                        </div>
+                        <div class="p-5">
+                            <p class="text-xs font-medium">Dhika Zukrup</p>
+                            <p class="text-xs text-slate-400">(+62) 8888888888</p>
+                            <p class="text-xs text-slate-400">Jl Menuju kemenangan dan melampauinya</p>
+                            <p class="text-sm text-right">NO.PESANAN : 2101718900HYT</p>
+                        </div>
+                        <div class="h-[1px] w-full bg-slate-400"></div>
                         <div class="flex justify-between">
+                            <div class="flex p-5 gap-5">
+                                <img class="h-24 w-14" src="https://source.unsplash.com/1000x600?dog" alt="produk">
+                                <div class="flex-col">
+                                    <p class="text-xl">MUKKA</p>
+                                    <P class="text-sm">MUKKA LIP CREAM MATEE</P>
+                                    <div class="flex items-center gap-5">
+                                        <p class="text-xs text-slate-400">Varian</p>
+                                        <p>ORANGE</p>
+                                    </div>
+                                    <p>X 1</p>
+                                </div>
+                            </div>
+                            <div class="flex-col p-5">
+                                <p class="text-right"><s class="text-slate-500">Rp 28.000</s></p>
+                                <p class="text-primary font-medium">Rp 25.200</p>
+                            </div>
+                        </div>
+                        <!-- Table Start -->
+                        <div class="px-5">
+                            <div class="flex border border-slate-400 divide-slate-400 divide-x text-sm text-slate-400">
+                                <p class="w-2/3 py-1 px-5 text-right">Pengiriman - ID Express</p>
+                                <p class="w-1/3 py-1 pr-2 text-right">Rp 6.000</p>
+                            </div>
+                            <div
+                                class="flex border-x border-slate-400 divide-slate-400 divide-x text-sm text-slate-400">
+                                <p class="w-2/3 py-1 px-5 text-right">Biaya Penanganan</p>
+                                <p class="w-1/3 py-1 pr-2 text-right">Rp 1.000</p>
+                            </div>
+                            <div class="flex border border-slate-400 divide-slate-400 divide-x text-sm text-slate-400">
+                                <p class="w-2/3 py-1 px-5 text-right">Discount</p>
+                                <p class="w-1/3 py-1 pr-2 text-right">10%</p>
+                            </div>
+                            <div
+                                class="flex border-x border-slate-400 divide-slate-400 divide-x text-sm text-slate-400">
+                                <p class="w-2/3 py-1 px-5 text-right">Total Pesanan</p>
+                                <p class="w-1/3 py-1 pr-2 text-right">Rp 32.000</p>
+                            </div>
+                            <div
+                                class="flex border border-slate-400 divide-slate-400 divide-x text-sm text-slate-400 items-center">
+                                <p class="w-2/3 py-1 px-5 text-right">Totas Pesanan</p>
+                                <p class="w-1/3 py-1 pr-2 text-right text-xl text-secondary font-bold">Rp 32.000</p>
+                            </div>
+                            <div
+                                class="flex border-b border-l border-r border-slate-400 divide-slate-400 divide-x text-sm text-slate-400 items-center">
+                                <div class="w-2/3 flex gap-2  justify-end py-1 px-5">
+                                    <div class="hex relative w-6 h-5 bg-primary rotate-90">
+                                        <svg class="fill-current absolute text-white top-0 left-0 rounded-full p-1 h-8 w-8 -rotate-90"
+                                            viewBox="-25 7 50 24">
+                                            <path
+                                                d="M24,6c0-2.2-1.8-4-4-4H4C1.8,2,0,3.8,0,6v12c0,2.2,1.8,4,4,4h16c2.2,0,4-1.8,4-4V6z M6,6c1.1,0,2,0.9,2,2   c0,1.1-0.9,2-2,2S4,9.1,4,8C4,6.9,4.9,6,6,6z M22,18c0,1.1-0.9,2-2,2H4.4c-0.9,0-1.3-1.1-0.7-1.7l3.6-3.6c0.4-0.4,1-0.4,1.4,0   l0.6,0.6c0.4,0.4,1,0.4,1.4,0l6.6-6.6c0.4-0.4,1-0.4,1.4,0l3,3c0.2,0.2,0.3,0.4,0.3,0.7V18z" />
+                                        </svg>
+                                    </div>
+                                    <p>Metode Pembayaran</p>
+                                </div>
+                                <p class="w-1/3 py-1 text-right pr-2">Bank BCA (Dicek Otomatis)</p>
+                            </div>
+                        </div>
+                        <!-- Table End -->
+                    </div>
+                    <!-- Body Atas End -->
+                    <!-- Body Bawah Start -->
+                    <div class="bg-white mt-5 py-5 rounded-lg">
+                        <div class="flex justify-end gap-20 mx-10 items-center">
+                            <div class="text-sm text-slate-400">
+                                <p>BeePoint yang akan anda dapatkan</p>
+                                <p class="text-xs text-right">(Setelah pemesanan selesai)</p>
+                            </div>
+                            <p class="text-secondary text-sm">+ 10 Points</p>
+                        </div>
+                    </div>
+                    <!-- Body Bawah End -->
+                </div>
+                <!-- On Process End -->
+                <!-- Packing Start -->
+                <div x-show="tab === 'packing'">
+                    <div class="bg-white pb-5 rounded text-center">
+                        <div class="flex justify-center py-5">
+                            <svg class="bg-orange-100 fill-current ml-5 text-secondary rounded-full p-1 h-28 w-28"
+                                viewBox="0 0 91 91">
+                                <path
+                                    d="M78.915,19.65c-0.348-5.268-5.762-10.969-12.988-11.465c-3.213-0.227-6.775,0.58-10.416,2.9   c-6.656,4.244-8.176,10.707-9.029,15.674c-0.34-3.785-1.554-8.6-5.916-12.016c-3.564-2.803-6.849-3.977-9.662-4.18   c-4.734-0.326-8.117,2.154-9.188,4.432c-4.806,10.211,10.354,9.672,18.669,13.027c-0.002,0.006-0.002,0.006-0.004,0.021   l-22.752-1.574l-1.992-0.145l-0.549,7.924l1.967,0.137l-0.035,0.518l0.023,0.006l-1.147,16.568l-0.063,0.92l-0.104,1.5   l26.534,1.809l1.406-20.637c0.091-1.385,1.294-2.432,2.679-2.338c1.387,0.096,2.432,1.293,2.338,2.68L47.28,56.049l26.996,1.838   l0.098-1.43l0.066-0.932l1.061-15.326l0.123-1.766l1.963,0.137l0.551-7.914l-1.967-0.137L52.925,28.91   c-0.031-0.057-0.063-0.117-0.094-0.158C62.272,23.93,79.808,33.104,78.915,19.65z M44.198,26.814   c-5.803-5.283-19.215-4.932-16.084-10.045c0.041-0.072,0.137-0.107,0.212-0.16c0.847-0.631,1.901-1.281,3.536-1.168   c1.713,0.119,4.061,1.072,7.467,3.758c3.004,2.357,4.242,4.9,5.228,7.602C44.437,26.813,44.315,26.805,44.198,26.814z    M49.235,27.193c-0.156-0.018-0.316-0.033-0.469-0.043c-0.016-0.006-0.035-0.006-0.051-0.004c1.338-3.654,3.351-7.41,7.979-10.91   c2.97-2.24,5.443-2.918,7.449-2.785c4.463,0.313,6.585,4.666,6.633,4.738C73.437,27.875,56.686,19.33,49.235,27.193z" />
+                                <path
+                                    d="M15.327,59.695l-0.025,0.004l-0.061,0.873l0.025,0.008l-0.018,0.242l-1.402,20.244c8.898-0.068,17.777-0.17,26.699-0.186   l1.375-20.16L15.378,58.92L15.327,59.695z" />
+                                <path
+                                    d="M45.591,80.863c9.006-0.02,18.061,0.049,27.09,0.076l1.111-16.064l0.016-0.244l0.046-0.672l0.017-0.213l0.059-0.838   L46.937,61.07L45.591,80.863z" />
+                            </svg>
+                        </div>
+                        <p class="text-sm text-primary font-medium mt-2">Pesanan sedang dikemas yaaa!</p>
+                        <p class="text-sm text-primary font-medium">Mohon ditunggu yaa!</p>
+                    </div>
+                </div>
+                <!-- Packing End -->
+                <!-- On Delivery Start -->
+                <div x-show="tab === 'onDelivery'">
+                    <div class="bg-white rounded p-5">
+                        <div class="flex justify-between">
+                            <p>NO.PESANAN : 2101789OYH0</p>
+                            <p class="font-medium">Sedang Dikirim</p>
+                        </div>
+                        <p>NO.RESI : IDS0059726773769</p>
+                        <p>ID EXPRESS</p>
+                        <p>NO.PESANAN : 2101789OYH0</p>
+                        <p class="text-xs text-slate-400">Tanggal dikirim : 7-12-2020</p>
+                        <p class="text-xs text-slate-400">Estimasi sampai : 9-12-2020</p>
+                        <div class="flex justify-between items-end">
+                            <div>
+                                <p class="text-xs font-medium">Dhika Zukrup</p>
+                                <p class="text-xs text-slate-400">(+62) 8888888888</p>
+                                <p class="text-xs text-slate-400">Jl Menuju kemenangan dan melampauinya</p>
+                            </div>
                             <div class="flex gap-5">
                                 <img class="h-24 w-14" src="https://source.unsplash.com/1000x600?dog" alt="produk">
                                 <div class="flex-col">
@@ -835,135 +1045,142 @@
                                     <p>X 1</p>
                                 </div>
                             </div>
-                            <div class="flex-col">
-                                <p class="text-right"><s class="text-slate-500">Rp 28.000</s></p>
-                                <p class="text-primary font-medium">Rp 25.200</p>
-                                <p class="text-right mt-5 text-xl font-thin text-primary">-10%</p>
-                            </div>
                         </div>
-                    </div>
-                    <!-- Produk End -->
-                    <div class="flex justify-end items-center mx-5">
-                        <div class="flex items-center gap-2">
-                            <div class="hex my-5 relative w-12 h-10 bg-primary rotate-90">
-                                <svg class="fill-current absolute text-white top-1 left-2 rounded-full p-1 h-8 w-8 -rotate-90"
-                                    viewBox="0 0 24 24">
-                                    <path
-                                        d="M24,6c0-2.2-1.8-4-4-4H4C1.8,2,0,3.8,0,6v12c0,2.2,1.8,4,4,4h16c2.2,0,4-1.8,4-4V6z M6,6c1.1,0,2,0.9,2,2   c0,1.1-0.9,2-2,2S4,9.1,4,8C4,6.9,4.9,6,6,6z M22,18c0,1.1-0.9,2-2,2H4.4c-0.9,0-1.3-1.1-0.7-1.7l3.6-3.6c0.4-0.4,1-0.4,1.4,0   l0.6,0.6c0.4,0.4,1,0.4,1.4,0l6.6-6.6c0.4-0.4,1-0.4,1.4,0l3,3c0.2,0.2,0.3,0.4,0.3,0.7V18z" />
-                                </svg>
-                            </div>
-                            <p>Jumlah yang harus dibayar</p>
-                        </div>
-                        <p class="text-2xl font-medium text-secondary ml-5">Rp 32.200</p>
-                    </div>
-                    <div class="border-2 justify-between bg-orange-100 flex p-5 border-orange-100 items-center">
-                        <p class="text-[10px] text-slate-400">Bayar sebelum 08-01-2021 09:30 dengan Bank BCA (Dicek
-                            otomatis)</p>
-                        <button class="px-2 bg-white py-1 shadow-lg rounded-sm text-[10px]">Batalkan Pesanan</button>
-                        <button class="px-2 bg-white py-1 shadow-lg rounded-sm text-[10px]">Ubah Metode
-                            Pembayaran</button>
-                        <button class="px-2 bg-orange-500 text-white py-1 shadow-lg rounded-sm text-[10px]">Bayar
-                            Sekarang</button>
-                    </div>
-                    <div class="flex justify-between gap-1 my-5">
-                        <div class="h-[3px] rounded w-10 bg-secondary"></div>
-                        <div class="h-[3px] rounded w-10 bg-slate-400"></div>
-                        <div class="h-[3px] rounded w-10 bg-secondary"></div>
-                        <div class="h-[3px] rounded w-10 bg-slate-400"></div>
-                        <div class="h-[3px] rounded w-10 bg-secondary"></div>
-                        <div class="h-[3px] rounded w-10 bg-slate-400"></div>
-                        <div class="h-[3px] rounded w-10 bg-secondary"></div>
-                        <div class="h-[3px] rounded w-10 bg-slate-400"></div>
-                        <div class="h-[3px] rounded w-10 bg-secondary"></div>
-                        <div class="h-[3px] rounded w-10 bg-slate-400"></div>
-                        <div class="h-[3px] rounded w-10 bg-secondary"></div>
-                        <div class="h-[3px] rounded w-10 bg-slate-400"></div>
-                        <div class="h-[3px] rounded w-10 bg-secondary"></div>
-                        <div class="h-[3px] rounded w-10 bg-slate-400"></div>
-                        <div class="h-[3px] rounded w-10 bg-secondary"></div>
-                        <div class="h-[3px] rounded w-10 bg-slate-400"></div>
-                        <div class="h-[3px] rounded w-10 bg-secondary"></div>
-                        <div class="h-[3px] rounded w-10 bg-slate-400"></div>
-                        <div class="h-[3px] rounded w-10 bg-secondary"></div>
-                        <div class="h-[3px] rounded w-10 bg-slate-400"></div>
-                    </div>
-                    <div class="p-5">
-                        <p class="text-xs font-medium">Dhika Zukrup</p>
-                        <p class="text-xs text-slate-400">(+62)8888888888</p>
-                        <p class="text-xs text-slate-400">Jl Menuju kemenangan dan melampauinya</p>
-                        <p class="text-sm text-right">NO.PESANAN : 2101718900HYT</p>
-                    </div>
-                    <div class="h-[1px] w-full bg-slate-400"></div>
-                    <div class="flex justify-between">
-                        <div class="flex p-5 gap-5">
-                            <img class="h-24 w-14" src="https://source.unsplash.com/1000x600?dog" alt="produk">
-                            <div class="flex-col">
-                                <p class="text-xl">MUKKA</p>
-                                <P class="text-sm">MUKKA LIP CREAM MATEE</P>
-                                <div class="flex items-center gap-5">
-                                    <p class="text-xs text-slate-400">Varian</p>
-                                    <p>ORANGE</p>
-                                </div>
-                                <p>X 1</p>
-                            </div>
-                        </div>
-                        <div class="flex-col p-5">
-                            <p class="text-right"><s class="text-slate-500">Rp 28.000</s></p>
-                            <p class="text-primary font-medium">Rp 25.200</p>
-                        </div>
-                    </div>
-                    <!-- Table Start -->
-                    <div class="px-5">
-                        <div class="flex border border-slate-400 divide-slate-400 divide-x text-sm text-slate-400">
-                            <p class="w-2/3 py-1 px-5 text-right">Pengiriman - ID Express</p>
-                            <p class="w-1/3 py-1 pr-2 text-right">Rp 6.000</p>
-                        </div>
-                        <div class="flex border-x border-slate-400 divide-slate-400 divide-x text-sm text-slate-400">
-                            <p class="w-2/3 py-1 px-5 text-right">Biaya Penanganan</p>
-                            <p class="w-1/3 py-1 pr-2 text-right">Rp 1.000</p>
-                        </div>
-                        <div class="flex border border-slate-400 divide-slate-400 divide-x text-sm text-slate-400">
-                            <p class="w-2/3 py-1 px-5 text-right">Discount</p>
-                            <p class="w-1/3 py-1 pr-2 text-right">10%</p>
-                        </div>
-                        <div class="flex border-x border-slate-400 divide-slate-400 divide-x text-sm text-slate-400">
-                            <p class="w-2/3 py-1 px-5 text-right">Total Pesanan</p>
-                            <p class="w-1/3 py-1 pr-2 text-right">Rp 32.000</p>
-                        </div>
-                        <div
-                            class="flex border border-slate-400 divide-slate-400 divide-x text-sm text-slate-400 items-center">
-                            <p class="w-2/3 py-1 px-5 text-right">Totas Pesanan</p>
-                            <p class="w-1/3 py-1 pr-2 text-right text-xl text-secondary font-bold">Rp 32.000</p>
-                        </div>
-                        <div
-                            class="flex border-b border-l border-r border-slate-400 divide-slate-400 divide-x text-sm text-slate-400 items-center">
-                            <div class="w-2/3 flex gap-2  justify-end py-1 px-5">
-                                <div class="hex relative w-6 h-5 bg-primary rotate-90">
-                                    <svg class="fill-current absolute text-white top-0 left-0 rounded-full p-1 h-8 w-8 -rotate-90"
-                                        viewBox="-25 7 50 24">
-                                        <path
-                                            d="M24,6c0-2.2-1.8-4-4-4H4C1.8,2,0,3.8,0,6v12c0,2.2,1.8,4,4,4h16c2.2,0,4-1.8,4-4V6z M6,6c1.1,0,2,0.9,2,2   c0,1.1-0.9,2-2,2S4,9.1,4,8C4,6.9,4.9,6,6,6z M22,18c0,1.1-0.9,2-2,2H4.4c-0.9,0-1.3-1.1-0.7-1.7l3.6-3.6c0.4-0.4,1-0.4,1.4,0   l0.6,0.6c0.4,0.4,1,0.4,1.4,0l6.6-6.6c0.4-0.4,1-0.4,1.4,0l3,3c0.2,0.2,0.3,0.4,0.3,0.7V18z" />
-                                    </svg>
-                                </div>
-                                <p>Metode Pembayaran</p>
-                            </div>
-                            <p class="w-1/3 py-1 text-right pr-2">Bank BCA (Dicek Otomatis)</p>
-                        </div>
-                    </div>
-                    <!-- Table End -->
-                </div>
-                <!-- Body Atas End -->
-                <!-- Body Bawah Start -->
-                <div class="bg-white mt-5 py-5 rounded-lg">
-                    <div class="flex justify-end gap-20 mx-10 items-center">
-                        <div class="text-sm text-slate-400">
-                            <p>BeePoint yang akan anda dapatkan</p>
-                            <p class="text-xs text-right">(Setelah pemesanan selesai)</p>
-                        </div>
-                        <p class="text-secondary text-sm">+ 10 Points</p>
                     </div>
                 </div>
-                <!-- Body Bawah End -->
+                <!-- On Delivery End -->
+                <!-- Delivered Start -->
+                <div x-show="tab === 'onProcess'">
+                    <div class="bg-white pb-5 pt-2 rounded">
+                        <div class="flex px-5 justify-between gap-1 my-5">
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                        </div>
+                        <div class="px-5">
+                            <p class="text-xs font-medium mb-1">Alamat Pengiriman</p>
+                            <p class="text-xs font-medium">Dhika Zukrup</p>
+                            <p class="text-xs text-slate-400">(+62) 8888888888</p>
+                            <p class="text-xs text-slate-400 mt-5">Jl Menuju kemenangan dan melampauinya</p>
+                        </div>
+                        <div class="flex px-5 justify-between gap-1 my-5">
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                            <div class="h-[3px] rounded w-10 bg-secondary"></div>
+                            <div class="h-[3px] rounded w-10 bg-slate-300"></div>
+                        </div>
+                        <div class="flex px-5 justify-between">
+                            <p>Parcel 1</p>
+                            <p class="text-slate-400">Dalam Pengiriman</p>
+                        </div>
+                        <div class="h-[2px] my-5 rounded w-full bg-slate-300"></div>
+                        <div class="flex divide-x-2">
+                            <div class="w-1/3 pl-5">
+                                <p>ID EXPRESS</p>
+                                <p>NO.RESI : IDS0059726773769</p>
+                            </div>
+                            <div class="w-2/3">
+                                <div class="ml-5">
+                                    <div class="border-l-[2px] border-slate-400 pb-3">
+                                        <div class="relative">
+                                            <div class="absolute top-1 -left-[5px] h-2 w-2 rounded-full bg-primary">
+                                            </div>
+                                            <div class="flex pl-3 text-sm">
+                                                <p class="text-xs w-[125px]">08-01-2020 12:31</p>
+                                                <span class="text-xs w-full">[TH CILEDUG]Kurir[Wahyu Apandi] sedang
+                                                    proses pengantaran</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border-l-[2px] text-slate-400 border-slate-400 pb-3">
+                                        <div class="relative">
+                                            <div class="absolute top-1 -left-[5px] h-2 w-2 rounded-full bg-slate-400">
+                                            </div>
+                                            <div class="flex w-full pl-3">
+                                                <p class="text-xs w-[125px]">08-01-2020 10:01</p>
+                                                <span class="text-[9px] w-full">[TH CILEDUG]Paket telah sampai [TH CILEDUG] (ID Express:IDS0059726773769)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border-l-[2px] text-slate-400 border-slate-400 pb-3">
+                                        <div class="relative">
+                                            <div class="absolute top-1 -left-[5px] h-2 w-2 rounded-full bg-slate-400">
+                                            </div>
+                                            <div class="flex w-full pl-3">
+                                                <p class="text-xs w-[125px]">08-01-2020 08:07</p>
+                                                <span class="text-[9px] w-full">[MH TANGERANG]Paket telah dikirimkan [THCILEDUG] (ID Express:IDS0059726773769)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border-l-[2px] text-slate-400 border-slate-400 pb-3">
+                                        <div class="relative">
+                                            <div class="absolute top-1 -left-[5px] h-2 w-2 rounded-full bg-slate-400">
+                                            </div>
+                                            <div class="flex w-full pl-3">
+                                                <p class="text-xs w-[125px]">08-01-2020 06:47</p>
+                                                <span class="text-[9px] w-full">[MH JAKARTA]Paket telah sampai [TANGERANG] (ID Express:IDS0059726773769)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border-l-[2px] text-slate-400 border-slate-400 pb-3">
+                                        <div class="relative">
+                                            <div class="absolute top-1 -left-[5px] h-2 w-2 rounded-full bg-slate-400">
+                                            </div>
+                                            <div class="flex w-full pl-3">
+                                                <p class="text-xs w-[125px]">07-01-2020 22:13</p>
+                                                <span class="text-[9px] w-full">[TH REGOL]Paket telah dikirimkan[MHJAKARTA](ID Express:IDS0059726773769)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="border-l-[2px] text-slate-400 border-slate-400 pb-3">
+                                        <div class="relative">
+                                            <div class="absolute top-1 -left-[5px] h-2 w-2 rounded-full bg-slate-400">
+                                            </div>
+                                            <div class="flex w-full pl-3">
+                                                <p class="text-xs w-[125px]">07-01-2020 17:53</p>
+                                                <span class="text-[9px] w-full">[TH REGOL]Paket telah sampai di [THREGOL] (ID Express:IDS0059726773769)</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Delivered End -->
             </div>
             <!-- My Order End -->
         </div>
