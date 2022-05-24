@@ -192,9 +192,9 @@
                                 :class="{'bg-orange-100 w-full text-orange-500': sidemenu === 'myOrder'}">
                                 My Order</li>
                         </div>
-                        <div @click.prevent="sidemenu = ''">
+                        <div @click.prevent="sidemenu = 'shippingAdress'">
                             <li class="pl-[90px] py-1"
-                                :class="{'bg-orange-100 w-full text-orange-500': sidemenu === ''}">
+                                :class="{'bg-orange-100 w-full text-orange-500': sidemenu === 'shippingAdress'}">
                                 Shipping Address</li>
                         </div>
                         <div @click.prevent="sidemenu = ''">
@@ -211,7 +211,7 @@
         <!-- Body Page Start -->
         <div class="col-span-7 h-full h-fit">
             <!-- Home Start -->
-            <div x-show="sidemenu === 'home'">
+            <div x-show="sidemenu === 'home1'">
                 <!-- Bagian Kanan Atas Start -->
                 <div class="pb-5 relative h-fit bg-white rounded-lg shadow-lg">
                     <img class="h-36 w-full rounded-t-lg" src="https://source.unsplash.com/1000x600?park" alt="banner">
@@ -1420,8 +1420,7 @@
                                     <div class="flex justify-end gap-5">
                                         <button
                                             class="w-36 bg-primary py-2 text-white shadow-lg rounded-sm text-[10px]">Beli
-                                            lagi
-                                            yuk</button>
+                                            lagi yuk</button>
                                         <button
                                             class="w-36 bg-white py-2 shadow-lg rounded-sm text-[10px]">Nilai</button>
                                     </div>
@@ -1538,10 +1537,120 @@
                 <!-- Failed End -->
             </div>
             <!-- My Order End -->
+            <!-- Shipping Address Start -->
+            <div x-show="sidemenu === 'home'">
+                <!-- Kanan Atas Start -->
+                <div class="bg-white rounded-lg mt-5 py-5">
+                    <p class="px-5">Alamat</p>
+                    <div class="my-5 bg-orange-100">
+                        <div class="p-5 text-xs">
+                            <p class="font-medium mb-1">Dhika Zukrup</p>
+                            <p class="text-orange-500 mb-1">(+62) 8888888888</p>
+                            <p class="text-orange-500 mb-1">Jl Menuju kemenangan dan melampauinya</p>
+                            <p class="text-orange-500 mb-1">15053</p>
+                        </div>
+                    </div>
+                    <div class="flex justify-center">
+                        <button class="bg-primary px-5 py-2 text-white font-light rounded">ADD NEW ADDRESS</button>
+                    </div>
+                </div>
+                <!-- Kanan Atas End -->
+                <!-- Kanan Bawah Start -->
+                <div class="bg-white rounded-lg mt-5 py-5">
+                    <div class="px-10">
+                        <!-- Radio Button Jenis Kelamin Start -->
+                        <p class="mb-2">ADD NEW ADDRESS</p>
+                        <div class="flex gap-10 text-sm">
+                            <div class="form-check cursor-pointer flex items-center">
+                                <input
+                                    class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-600 checked:border-orange-600 transition duration-200 cursor-pointer"
+                                    type="radio" name="flexRadioDefault" id="radiolaki-laki" checked>
+                                <label class="form-check-label cursor-pointer ml-2" for="radiolaki-laki">
+                                    Laki-laki</label>
+                            </div>
+                            <div class="form-check cursor-pointer flex items-center">
+                                <input
+                                    class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-600 checked:border-orange-600 transition duration-200 cursor-pointer"
+                                    type="radio" name="flexRadioDefault" id="radioperempuan">
+                                <label class="form-check-label cursor-pointer ml-2" for="radioperempuan">
+                                    Perempuan</label>
+                            </div>
+                        </div>
+                        <!-- Radio Button Jenis Kelamin End -->
+                        <!-- Biodata Start -->
+                        <div class="my-3 text-sm">
+                            <label class="form-label">Alias</label>
+                            <input type="text"
+                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded"
+                                value="Judul Alamat (contoh): Alamat Kantor" disabled />
+                        </div>
+                        <div class="my-3 text-sm">
+                            <label class="form-label">Informasi Pengguna</label>
+                            <div class="flex gap-10">
+                                <input type="text" class="form-control w-40 my-2 px-9 py-2 border border-slate-400 rounded"
+                                value="Nama Depan" />
+                                <input type="text" class="form-control w-40 my-2 px-7 py-2 border border-slate-400 rounded"
+                                value="Nama Belakang" />
+                            </div>
+                        </div>
+                        <div class="my-3 text-sm">
+                            <div class="flex justify-between">
+                                <label class="form-label">Biodata</label>
+                                <label class="form-label">/160</label>
+                            </div>
+                            <textarea
+                                class="w-full h-20 border border-slate-400 my-2 px-3 py-2 resize-none rounded"></textarea>
+                        </div>
+                        <div class="my-3 text-sm">
+                            <label class="form-label">Tanggal Lahir</label>
+                            <input type="text"
+                                class="form-control w-full my-2 px-3 py-2 border border-slate-400 rounded" />
+                        </div>
+                        <div class="my-3 text-sm">
+                            <label class="form-label">Email</label>
+                            <input type="text"
+                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded"
+                                disabled />
+                        </div>
+                        <div class="my-3 text-sm">
+                            <div class="flex justify-between">
+                                <label class="form-label">Nomor Handphone</label>
+                                <label class="form-label">Ganti Nomor</label>
+                            </div>
+                            <input type="text"
+                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded"
+                                disabled />
+                        </div>
+                        <div class="my-3 text-sm">
+                            <label class="form-label">Alamat</label>
+                            <textarea
+                                class="w-full h-20 border border-slate-400 my-2 px-3 py-2 resize-none rounded"></textarea>
+                        </div>
+                        <div class="flex justify-between">
+                            <div class="my-3 text-sm relative">
+                                <label class="form-label">Nama Bank</label>
+                                <input type="text"
+                                    class="form-control w-full my-2 px-3 py-1 text-gray-700 bg-gray-200 border rounded"
+                                    disabled />
+                                <svg class="absolute bottom-3 right-2 w-5 h-5 fill-current" viewBox="0 0 512 512">
+                                    <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
+                                </svg>
+                            </div>
+                            <div class="my-3 text-sm">
+                                <label class="form-label">Nomor Rekening</label>
+                                <input type="text"
+                                    class="form-control w-full my-2 px-3 py-1 text-gray-700 bg-gray-200 border rounded"
+                                    disabled />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Kanan Bawah End -->
+                <!-- Shipping Address End -->
+            </div>
+            <!-- Body Page End -->
         </div>
-        <!-- Body Page End -->
-    </div>
-    <!-- Body End -->
+        <!-- Body End -->
 </body>
 
 </html>
