@@ -211,7 +211,7 @@
         <!-- Body Page Start -->
         <div class="col-span-7 h-full h-fit">
             <!-- Home Start -->
-            <div x-show="sidemenu === 'home1'">
+            <div x-show="sidemenu === 'home'">
                 <!-- Bagian Kanan Atas Start -->
                 <div class="pb-5 relative h-fit bg-white rounded-lg shadow-lg">
                     <img class="h-36 w-full rounded-t-lg" src="https://source.unsplash.com/1000x600?park" alt="banner">
@@ -1538,7 +1538,7 @@
             </div>
             <!-- My Order End -->
             <!-- Shipping Address Start -->
-            <div x-show="sidemenu === 'home'">
+            <div x-show="sidemenu === 'shippingAdress'">
                 <!-- Kanan Atas Start -->
                 <div class="bg-white rounded-lg mt-5 py-5">
                     <p class="px-5">Alamat</p>
@@ -1564,15 +1564,15 @@
                             <div class="form-check cursor-pointer flex items-center">
                                 <input
                                     class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-600 checked:border-orange-600 transition duration-200 cursor-pointer"
-                                    type="radio" name="flexRadioDefault" id="radiolaki-laki" checked>
-                                <label class="form-check-label cursor-pointer ml-2" for="radiolaki-laki">
+                                    type="radio" name="flexRadioDefault" id="radiolaki-laki1" checked>
+                                <label class="form-check-label cursor-pointer ml-2" for="radiolaki-laki1">
                                     Laki-laki</label>
                             </div>
                             <div class="form-check cursor-pointer flex items-center">
                                 <input
                                     class="form-check-input appearance-none rounded-full h-4 w-4 border border-gray-300 bg-white checked:bg-orange-600 checked:border-orange-600 transition duration-200 cursor-pointer"
-                                    type="radio" name="flexRadioDefault" id="radioperempuan">
-                                <label class="form-check-label cursor-pointer ml-2" for="radioperempuan">
+                                    type="radio" name="flexRadioDefault" id="radioperempuan1">
+                                <label class="form-check-label cursor-pointer ml-2" for="radioperempuan1">
                                     Perempuan</label>
                             </div>
                         </div>
@@ -1587,63 +1587,84 @@
                         <div class="my-3 text-sm">
                             <label class="form-label">Informasi Pengguna</label>
                             <div class="flex gap-10">
-                                <input type="text" class="form-control w-40 my-2 px-9 py-2 border border-slate-400 rounded"
-                                value="Nama Depan" />
-                                <input type="text" class="form-control w-40 my-2 px-7 py-2 border border-slate-400 rounded"
-                                value="Nama Belakang" />
+                                <input type="text"
+                                    class="form-control w-40 my-2 px-9 py-2 border border-slate-400 rounded"
+                                    value="Nama Depan" />
+                                <input type="text"
+                                    class="form-control w-40 my-2 px-7 py-2 border border-slate-400 rounded"
+                                    value="Nama Belakang" />
                             </div>
                         </div>
-                        <div class="my-3 text-sm">
+                        <div class="my-3 flex flex-col text-sm">
+                            <label class="form-label">Nomor Handphone</label>
+                            <input class="border w-[360px] border-slate-400 my-2 px-3 py-2 rounded"></input>
+                        </div>
+                        <div>
+                            <p>Alamat Penerima</p>
+                            <!-- Negara & Provinsi Start -->
                             <div class="flex justify-between">
-                                <label class="form-label">Biodata</label>
-                                <label class="form-label">/160</label>
+                                <div class="relative flex flex-col">
+                                    <label class="form-label text-xs text-slate-400">Negara</label>
+                                    <input type="text"
+                                        class="form-control text-xs h-10 w-72 my-2 px-3 py-1 text-gray-700 border rounded"
+                                        value="Indonesia" />
+                                    <svg class="absolute bottom-5 right-2 w-5 h-5 fill-current" viewBox="0 0 512 512">
+                                        <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
+                                    </svg>
+                                </div>
+                                <div class="relative flex flex-col">
+                                    <label class="form-label text-xs text-slate-400">Provinsi</label>
+                                    <input type="text"
+                                        class="form-control text-xs h-10 w-72 my-2 px-3 py-1 text-gray-700 border rounded"
+                                        value="Pilih Provinsi" />
+                                    <svg class="absolute bottom-5 right-2 w-5 h-5 fill-current" viewBox="0 0 512 512">
+                                        <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
+                                    </svg>
+                                </div>
                             </div>
+                            <!-- Negara & Provinsi End -->
+                            <!-- Kota/Kabupaten & Kecamatan Start -->
+                            <div class="flex justify-between">
+                                <div class="relative flex flex-col">
+                                    <label class="form-label text-xs text-slate-400">Kota/Kabupaten</label>
+                                    <input type="text"
+                                        class="form-control text-xs h-10 w-72 my-2 px-3 py-1 text-gray-700 border rounded"
+                                        value="Pilih Kota/Kabupaten" />
+                                    <svg class="absolute bottom-5 right-2 w-5 h-5 fill-current" viewBox="0 0 512 512">
+                                        <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
+                                    </svg>
+                                </div>
+                                <div class="relative flex flex-col">
+                                    <label class="form-label text-xs text-slate-400">Kecamatan</label>
+                                    <input type="text"
+                                        class="form-control text-xs h-10 w-72 my-2 px-3 py-1 text-gray-700 border rounded"
+                                        value="Pilih Kecamatan" />
+                                    <svg class="absolute bottom-5 right-2 w-5 h-5 fill-current" viewBox="0 0 512 512">
+                                        <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
+                                    </svg>
+                                </div>
+                            </div>
+                            <!-- Kota/Kabupaten & Kecamatan End -->
+                        </div>
+                        <div class="my-3 text-sm">
+                            <label class="form-label">Alamat Lengkap</label>
                             <textarea
                                 class="w-full h-20 border border-slate-400 my-2 px-3 py-2 resize-none rounded"></textarea>
                         </div>
-                        <div class="my-3 text-sm">
-                            <label class="form-label">Tanggal Lahir</label>
+                        <div class="my-3 text-sm flex flex-col">
+                            <label class="form-label">Kode Pos</label>
                             <input type="text"
-                                class="form-control w-full my-2 px-3 py-2 border border-slate-400 rounded" />
-                        </div>
-                        <div class="my-3 text-sm">
-                            <label class="form-label">Email</label>
-                            <input type="text"
-                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded"
-                                disabled />
-                        </div>
-                        <div class="my-3 text-sm">
-                            <div class="flex justify-between">
-                                <label class="form-label">Nomor Handphone</label>
-                                <label class="form-label">Ganti Nomor</label>
-                            </div>
-                            <input type="text"
-                                class="form-control w-full my-2 px-3 py-2 text-gray-700 bg-gray-200 border rounded"
-                                disabled />
-                        </div>
-                        <div class="my-3 text-sm">
-                            <label class="form-label">Alamat</label>
-                            <textarea
-                                class="w-full h-20 border border-slate-400 my-2 px-3 py-2 resize-none rounded"></textarea>
-                        </div>
-                        <div class="flex justify-between">
-                            <div class="my-3 text-sm relative">
-                                <label class="form-label">Nama Bank</label>
-                                <input type="text"
-                                    class="form-control w-full my-2 px-3 py-1 text-gray-700 bg-gray-200 border rounded"
-                                    disabled />
-                                <svg class="absolute bottom-3 right-2 w-5 h-5 fill-current" viewBox="0 0 512 512">
-                                    <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
-                                </svg>
-                            </div>
-                            <div class="my-3 text-sm">
-                                <label class="form-label">Nomor Rekening</label>
-                                <input type="text"
-                                    class="form-control w-full my-2 px-3 py-1 text-gray-700 bg-gray-200 border rounded"
-                                    disabled />
-                            </div>
+                                class="form-control text-xs h-10 w-72 my-2 px-3 py-1 text-gray-700 border rounded" />
                         </div>
                     </div>
+                    <!-- Button Start -->
+                    <div class="flex gap-10 justify-center">
+                        <button
+                            class="text-xl w-56 py-1 border border-primary rounded text-primary">CANCEL</button>
+                        <button
+                            class="text-xl w-56 py-1 border border-secondary bg-primary text-white rounded">ADD ADDRESS</button>
+                    </div>
+                    <!-- Button End -->
                 </div>
                 <!-- Kanan Bawah End -->
                 <!-- Shipping Address End -->
