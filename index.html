@@ -8,6 +8,8 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
     <script src="//unpkg.com/alpinejs" defer></script>
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <title>Dashboard Member</title>
     <script>
         tailwind.config = {
@@ -30,6 +32,18 @@
         .hex {
             clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
             -moz-clip-path: polygon(0% 50%, 25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%);
+        }
+
+        input:nth-child(2n + 1)::before {
+            right: 7px;
+            left: initial;
+        }
+
+        input:hover~input::before,
+        input:hover::before,
+        input:checked~input::before,
+        input:checked::before {
+            color: #fe806b;
         }
     </style>
 </head>
@@ -218,6 +232,38 @@
                     </div>
                 </li>
                 <!-- My Favorite End -->
+                <!-- Withdrawal Start -->
+                <li class="w-full items-center cursor-pointer justify-between" x-data="{ open: false }">
+                    <div x-on:click="open = ! open">
+                        <div class="w-full flex justify-between px-10" x-data="{selected : false}"
+                            x-on:click="selected=!open">
+                            <div class="flex gap-5">
+                                <svg class="w-7 h-7 fill-current" viewBox="0 0 16 16">
+                                    <path
+                                        d="M1,3v2H0v8h14v-1h1h1V4V3H2H1z M7,11c-1.105,0-2-0.895-2-2c0-1.105,0.895-2,2-2s2,0.895,2,2C9,10.105,8.105,11,7,11z M15,11  h-1V5H2V4h13V11z" />
+                                </svg>
+                                <button class="font-semibold">Withdrawal</button>
+                            </div>
+                            <svg class="w-7 h-7 fill-current transition-all" x-bind:class="{'rotate' : selected}"
+                                viewBox="0 0 512 512">
+                                <polygon points="396.6,160 416,180.7 256,352 96,180.7 115.3,160 256,310.5 " />
+                            </svg>
+                        </div>
+                    </div>
+                    <ul class="my-1 w-full" x-show="open" x-transition>
+                        <div @click.prevent="sidemenu = 'withdrawal'">
+                            <li class="mt-2 pl-[90px] py-1"
+                                :class="{'bg-orange-100 w-full text-orange-500': sidemenu === 'withdrawal'}">
+                                Withdrawal</li>
+                        </div>
+                        <div @click.prevent="sidemenu = ''">
+                            <li class="pl-[90px] py-1"
+                                :class="{'bg-orange-100 w-full text-orange-500': sidemenu === ''}">
+                                Report</li>
+                        </div>
+                    </ul>
+                </li>
+                <!-- Withdrawal End -->
             </ul>
         </div>
         <!-- Side Menu End -->
@@ -1971,24 +2017,415 @@
             </div>
             <!-- History Order End -->
             <!-- My Favorite Start -->
-            <div x-show="sidemenu === 'home'">
+            <div x-show="sidemenu === 'myFavorite'">
                 <!-- Kanan Atas Start -->
                 <div class="relative">
                     <img class="rounded-t-lg h-60 w-full" src="https://source.unsplash.com/1000x600?dark" />
                     <div class="absolute top-10 left-10 text-white">
                         <p class="text-7xl font-bold">CASHBACK</p>
-                        <p class="text-sm font-medium w-56">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero, </p>
-                        <button class="mt-5 py-[1px] rounded-full px-5 bg-blue-600 text-sm font-semibold">Shop Now</button>
+                        <p class="text-sm font-medium w-56 mt-2">Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit.
+                            Vero, </p>
+                        <button class="mt-5 py-[1px] rounded-full px-5 bg-blue-600 text-sm font-semibold">Shop
+                            Now</button>
                     </div>
                 </div>
                 <!-- Kanan Atas End -->
-                <!-- Kanan Bawah Start -->
-                <div class="flex">
-
+                <!-- Kanan Bagian 1 Start -->
+                <div class="flex justify-between py-5">
+                    <!-- Produk 1 Start -->
+                    <div class="flex-col w-56 h-fit relative rounded-lg">
+                        <button
+                            class="absolute bg-primary top-1 left-1 text-white rounded-full w-[25px] h-[25px] text-[10px]">30%</button>
+                        <!-- Like Button Start -->
+                        <div class="absolute top-1 right-1" x-on:click="open = ! open">
+                            <div x-data="{selected : false}" x-on:click="selected = ! open">
+                                <svg class="w-7 h-7 fill-current" x-bind:class="{'toggle' : selected}"
+                                    viewBox="-1 0 28 28">
+                                    <path x-bind:class="{'toggle' : selected}" fill="red"
+                                        d="M22.2,4.1c2.7,2.7,2.4,6.9-0.4,9.5l-8.4,7.9c-0.8,0.7-2.1,0.7-2.9,0l-8.4-7.9c-2.7-2.6-3-6.8-0.4-9.5   C4.6,1.4,9.2,1.3,12,4C14.8,1.3,19.4,1.4,22.2,4.1z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Like Button End -->
+                        <img class="w-56 h-[285px] rounded-t-md" src="https://source.unsplash.com/1000x600?woman">
+                        <div class="px-2 pt-1 rounded-b-md bg-white">
+                            <p class="font-medium text-sm mb-2">MUK HAIR CARE</p>
+                            <P class="text-third text-xs">Deep Muk Ultra Soft Shampoo</P>
+                            <p class="text-third text-sm">Rp 300.000</p>
+                            <p class="font-medium text-primary text-xs">Rp 240.000</p>
+                            <p class="text-primary text-xs py-1">30%</p>
+                            <div class="flex items-center relative">
+                                <div class="relative flex flex-row-reverse -left-2 -top-3">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[86px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[80px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[66px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[60px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[46px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[40px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[26px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[20px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[6px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative left-0 w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                </div>
+                                <p class="absolute top-0 left-[100px] text-xs text-slate-400 ml-2">(120)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Produk 1 End -->
+                    <!-- Produk 2 Start -->
+                    <div class="flex-col w-56 h-fit relative rounded-lg">
+                        <button
+                            class="absolute bg-primary top-1 left-1 text-white rounded-full w-[25px] h-[25px] text-[10px]">30%</button>
+                        <!-- Like Button Start -->
+                        <div class="absolute top-1 right-1" x-on:click="open = ! open">
+                            <div x-data="{selected : false}" x-on:click="selected = ! open">
+                                <svg class="w-7 h-7 fill-current" x-bind:class="{'toggle' : selected}"
+                                    viewBox="-1 0 28 28">
+                                    <path x-bind:class="{'toggle' : selected}" fill="red"
+                                        d="M22.2,4.1c2.7,2.7,2.4,6.9-0.4,9.5l-8.4,7.9c-0.8,0.7-2.1,0.7-2.9,0l-8.4-7.9c-2.7-2.6-3-6.8-0.4-9.5   C4.6,1.4,9.2,1.3,12,4C14.8,1.3,19.4,1.4,22.2,4.1z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Like Button End -->
+                        <img class="w-56 h-[285px] rounded-t-md" src="https://source.unsplash.com/1000x600?woman">
+                        <div class="px-2 pt-1 rounded-b-md bg-white">
+                            <p class="font-medium text-sm mb-2">MUK HAIR CARE</p>
+                            <P class="text-third text-xs">Deep Muk Ultra Soft Shampoo</P>
+                            <p class="text-third text-sm">Rp 300.000</p>
+                            <p class="font-medium text-primary text-xs">Rp 240.000</p>
+                            <p class="text-primary text-xs py-1">30%</p>
+                            <div class="flex items-center relative">
+                                <div class="relative flex flex-row-reverse -left-2 -top-3">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[86px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[80px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[66px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[60px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[46px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[40px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[26px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[20px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[6px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative left-0 w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                </div>
+                                <p class="absolute top-0 left-[100px] text-xs text-slate-400 ml-2">(120)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Produk 2 End -->
+                    <!-- Produk 3 Start -->
+                    <div class="flex-col w-56 h-fit relative rounded-lg">
+                        <button
+                            class="absolute bg-primary top-1 left-1 text-white rounded-full w-[25px] h-[25px] text-[10px]">30%</button>
+                        <!-- Like Button Start -->
+                        <div class="absolute top-1 right-1" x-on:click="open = ! open">
+                            <div x-data="{selected : false}" x-on:click="selected = ! open">
+                                <svg class="w-7 h-7 fill-current" x-bind:class="{'toggle' : selected}"
+                                    viewBox="-1 0 28 28">
+                                    <path x-bind:class="{'toggle' : selected}" fill="red"
+                                        d="M22.2,4.1c2.7,2.7,2.4,6.9-0.4,9.5l-8.4,7.9c-0.8,0.7-2.1,0.7-2.9,0l-8.4-7.9c-2.7-2.6-3-6.8-0.4-9.5   C4.6,1.4,9.2,1.3,12,4C14.8,1.3,19.4,1.4,22.2,4.1z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Like Button End -->
+                        <img class="w-56 h-[285px] rounded-t-md" src="https://source.unsplash.com/1000x600?woman">
+                        <div class="px-2 pt-1 rounded-b-md bg-white">
+                            <p class="font-medium text-sm mb-2">MUK HAIR CARE</p>
+                            <P class="text-third text-xs">Deep Muk Ultra Soft Shampoo</P>
+                            <p class="text-third text-sm">Rp 300.000</p>
+                            <p class="font-medium text-primary text-xs">Rp 240.000</p>
+                            <p class="text-primary text-xs py-1">30%</p>
+                            <div class="flex items-center relative">
+                                <div class="relative flex flex-row-reverse -left-2 -top-3">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[86px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[80px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[66px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[60px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[46px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[40px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[26px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[20px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[6px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative left-0 w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                </div>
+                                <p class="absolute top-0 left-[100px] text-xs text-slate-400 ml-2">(120)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Produk 3 End -->
                 </div>
-                <!-- Kanan Bawah End -->
+                <!-- Kanan Bagian 1 End -->
+                <!-- Kanan Bagian 2 Start -->
+                <div class="flex justify-between pt-5">
+                    <!-- Produk 1 Start -->
+                    <div class="flex-col w-56 h-fit relative rounded-lg">
+                        <button
+                            class="absolute bg-primary top-1 left-1 text-white rounded-full w-[25px] h-[25px] text-[10px]">30%</button>
+                        <!-- Like Button Start -->
+                        <div class="absolute top-1 right-1" x-on:click="open = ! open">
+                            <div x-data="{selected : false}" x-on:click="selected = ! open">
+                                <svg class="w-7 h-7 fill-current" x-bind:class="{'toggle' : selected}"
+                                    viewBox="-1 0 28 28">
+                                    <path x-bind:class="{'toggle' : selected}" fill="red"
+                                        d="M22.2,4.1c2.7,2.7,2.4,6.9-0.4,9.5l-8.4,7.9c-0.8,0.7-2.1,0.7-2.9,0l-8.4-7.9c-2.7-2.6-3-6.8-0.4-9.5   C4.6,1.4,9.2,1.3,12,4C14.8,1.3,19.4,1.4,22.2,4.1z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Like Button End -->
+                        <img class="w-56 h-[285px] rounded-t-md" src="https://source.unsplash.com/1000x600?woman">
+                        <div class="px-2 pt-1 rounded-b-md bg-white">
+                            <p class="font-medium text-sm mb-2">MUK HAIR CARE</p>
+                            <P class="text-third text-xs">Deep Muk Ultra Soft Shampoo</P>
+                            <p class="text-third text-sm">Rp 300.000</p>
+                            <p class="font-medium text-primary text-xs">Rp 240.000</p>
+                            <p class="text-primary text-xs py-1">30%</p>
+                            <div class="flex items-center relative">
+                                <div class="relative flex flex-row-reverse -left-2 -top-3">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[86px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[80px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[66px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[60px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[46px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[40px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[26px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[20px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[6px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative left-0 w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                </div>
+                                <p class="absolute top-0 left-[100px] text-xs text-slate-400 ml-2">(120)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Produk 1 End -->
+                    <!-- Produk 2 Start -->
+                    <div class="flex-col w-56 h-fit relative rounded-lg">
+                        <button
+                            class="absolute bg-primary top-1 left-1 text-white rounded-full w-[25px] h-[25px] text-[10px]">30%</button>
+                        <!-- Like Button Start -->
+                        <div class="absolute top-1 right-1" x-on:click="open = ! open">
+                            <div x-data="{selected : false}" x-on:click="selected = ! open">
+                                <svg class="w-7 h-7 fill-current" x-bind:class="{'toggle' : selected}"
+                                    viewBox="-1 0 28 28">
+                                    <path x-bind:class="{'toggle' : selected}" fill="red"
+                                        d="M22.2,4.1c2.7,2.7,2.4,6.9-0.4,9.5l-8.4,7.9c-0.8,0.7-2.1,0.7-2.9,0l-8.4-7.9c-2.7-2.6-3-6.8-0.4-9.5   C4.6,1.4,9.2,1.3,12,4C14.8,1.3,19.4,1.4,22.2,4.1z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Like Button End -->
+                        <img class="w-56 h-[285px] rounded-t-md" src="https://source.unsplash.com/1000x600?woman">
+                        <div class="px-2 pt-1 rounded-b-md bg-white">
+                            <p class="font-medium text-sm mb-2">MUK HAIR CARE</p>
+                            <P class="text-third text-xs">Deep Muk Ultra Soft Shampoo</P>
+                            <p class="text-third text-sm">Rp 300.000</p>
+                            <p class="font-medium text-primary text-xs">Rp 240.000</p>
+                            <p class="text-primary text-xs py-1">30%</p>
+                            <div class="flex items-center relative">
+                                <div class="relative flex flex-row-reverse -left-2 -top-3">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[86px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[80px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[66px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[60px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[46px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[40px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[26px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[20px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[6px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative left-0 w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                </div>
+                                <p class="absolute top-0 left-[100px] text-xs text-slate-400 ml-2">(120)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Produk 2 End -->
+                    <!-- Produk 3 Start -->
+                    <div class="flex-col w-56 h-fit relative rounded-lg">
+                        <button
+                            class="absolute bg-primary top-1 left-1 text-white rounded-full w-[25px] h-[25px] text-[10px]">30%</button>
+                        <!-- Like Button Start -->
+                        <div class="absolute top-1 right-1" x-on:click="open = ! open">
+                            <div x-data="{selected : false}" x-on:click="selected = ! open">
+                                <svg class="w-7 h-7 fill-current" x-bind:class="{'toggle' : selected}"
+                                    viewBox="-1 0 28 28">
+                                    <path x-bind:class="{'toggle' : selected}" fill="red"
+                                        d="M22.2,4.1c2.7,2.7,2.4,6.9-0.4,9.5l-8.4,7.9c-0.8,0.7-2.1,0.7-2.9,0l-8.4-7.9c-2.7-2.6-3-6.8-0.4-9.5   C4.6,1.4,9.2,1.3,12,4C14.8,1.3,19.4,1.4,22.2,4.1z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <!-- Like Button End -->
+                        <img class="w-56 h-[285px] rounded-t-md" src="https://source.unsplash.com/1000x600?woman">
+                        <div class="px-2 pt-1 rounded-b-md bg-white">
+                            <p class="font-medium text-sm mb-2">MUK HAIR CARE</p>
+                            <P class="text-third text-xs">Deep Muk Ultra Soft Shampoo</P>
+                            <p class="text-third text-sm">Rp 300.000</p>
+                            <p class="font-medium text-primary text-xs">Rp 240.000</p>
+                            <p class="text-primary text-xs py-1">30%</p>
+                            <div class="flex items-center relative">
+                                <div class="relative flex flex-row-reverse -left-2 -top-3">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[86px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[80px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[66px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[60px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[46px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[40px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[26px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative -left-[20px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:-left-[3px] before:text-gray-300 before:transition-all relative -left-[6px] w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                    <input
+                                        class="before:content-['\eeb8'] before:absolute before:font-['boxicons'] before:text-md before:left-[10px] before:text-gray-300 before:transition-all relative left-0 w-5 h-10 flex justify-center items-center overflow-hidden cursor-pointer appearance-none"
+                                        type="radio" name="produk1">
+                                </div>
+                                <p class="absolute top-0 left-[100px] text-xs text-slate-400 ml-2">(120)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Produk 3 End -->
+                </div>
+                <!-- Kanan Bagian 2 End -->
             </div>
             <!-- My Favorite End -->
+            <!-- Withdrawal Start -->
+            <div x-show="sidemenu === 'withdrawal'">
+                <div class="relative bg-white pb-5 rounded-lg">
+                    <img class="rounded-t-lg h-24 w-full" src="https://source.unsplash.com/1000x600?white"
+                        alt="bannerMyProfile">
+                    <p class="absolute top-8 left-20 text-xl">BeeCash : 500.000</p>
+                    <div class="flex gap-1 absolute top-12 right-20 text-xs">
+                        <button class="text-slate-400">Syarat dan ketentuan berlaku</button>
+                        <svg class="h-3 w-3 fill-current text-slate-400" viewBox="0 0 24 24">
+                            <path
+                                d="M12,2C6.5,2,2,6.5,2,12s4.5,10,10,10s10-4.5,10-10S17.5,2,12,2z M12,20c-4.4,0-8-3.6-8-8s3.6-8,8-8s8,3.6,8,8    S16.4,20,12,20z" />
+                            <path
+                                d="M12.1,7.3h-0.1c-1,0-1.9,0.5-2.4,1.3C9.2,9.1,9.3,9.7,9.8,10c0.5,0.3,1.1,0.2,1.4-0.3c0.2-0.3,0.5-0.4,0.8-0.4h0.1    c0.5,0,0.9,0.4,0.9,0.9c0,0.4-0.3,0.8-0.6,0.9l-0.7,0.2c-0.4,0.1-0.7,0.5-0.7,0.9V13c0,0.6,0.4,1,1,1c0.5,0,1-0.4,1-0.9    c1.2-0.4,2-1.5,2-2.8C15,8.7,13.7,7.3,12.1,7.3z" />
+                            <circle cx="12" cy="16" r="1" />
+                        </svg>
+                    </div>
+                    <div class="mx-10 mt-10 text-sm">
+                        <input type="text"
+                            class="form-control w-full my-2 px-3 py-2 border border-slate-400 rounded"
+                            placeholder="Masukan Nominal" />
+                            <button class="bg-primary font-medium px-5 text-white py-1 rounded mt-5">REQUEST</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Withdrawal End -->
             <!-- Body Page End -->
         </div>
         <!-- Body End -->
