@@ -1,12 +1,23 @@
-const image_input = document.querySelector('#image_input');
-var uploaded_image = "";
-
-image_input.addEventListener("change", function(){
-    const reader = new FileReader();
-    reader.addEventListener("load",()=>{
-        uploaded_image = reader.result;
-        document.querySelector("#display_image").style.backgroundImage = `url(${uploaded_image})`;
-        document.getElementById("#display_image").style.zIndex = "20";
-    });
-    reader.readAsDataURL(this.files[0]);
-})
+// Upload Image Profile
+$(".image-box").click(function (event) {
+    var previewImg = $(this).children("img");
+    $(this)
+        .siblings()
+        .children("input")
+        .trigger("click");
+    $(this)
+        .siblings()
+        .children("input")
+        .change(function () {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                var urll = e.target.result;
+                $(previewImg).attr("src", urll);
+                previewImg.parent().css("background", "transparent");
+                previewImg.show();
+                previewImg.siblings("p").hide();
+            };
+            reader.readAsDataURL(this.files[0]);
+        });
+});
+// Upload Image Profile
